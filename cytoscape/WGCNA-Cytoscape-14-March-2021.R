@@ -5,11 +5,12 @@ if (!require("pacman")) install.packages("pacman")
 
 pacman::p_load(ABAData, httr, readxl, tidyverse, WGCNA, igraph, pins) 
 
-stage <- 1 
+stage <- 5 
+softPower <- 7
 
-library(anRichment)
-library(org.Hs.eg.db)
-GOcollection = buildGOcollection(organism = "human")
+# library(anRichment)
+# library(org.Hs.eg.db)
+# GOcollection = buildGOcollection(organism = "human")
 
 
 allLLIDs<-read_csv("locuslinkedIDs.csv")
@@ -51,8 +52,6 @@ sz_stage_1 <- dataset_5_stages %>%
   scale() %>% 
   t()
 
-sz_stage_1 %>% t()
-
 # Tue May 12 11:25:55 2020 ------------------------------
 #sz_stage_4<-k4 <- t(k4)
 k1 <- sz_stage_1 %>% t()
@@ -61,34 +60,9 @@ k1 <- sz_stage_1 %>% t()
 
 # Part 2:  Step-by-step network construction and module detection
 
-# Choose a set of soft-thresholding powers
-powers1 = c(c(1:10), seq(from = 12, to=20, by=2))
 
-# Call the network topology analysis function
-sft1 = pickSoftThreshold(k1, powerVector = powers1, verbose = 5)
+#Calculating adjacencies with soft threshold of 6
 
-# Plot the results:
-sizeGrWindow(9, 5)
-par(mfrow = c(1,2));
-cex1 = 0.9;
-
-# Scale-free topology fit index as a function of the soft-thresholding power
-plot(sft1$fitIndices[,1], -sign(sft1$fitIndices[,3])*sft1$fitIndices[,2],
-     xlab="Soft Threshold (power)",ylab="Scale Free Topology Model Fit,signed R^2",type="n",
-     main = paste("Scale independence"));
-text(sft1$fitIndices[,1], -sign(sft1$fitIndices[,3])*sft1$fitIndices[,2],
-     labels=powers1,cex=cex1,col="red");
-# this line corresponds to using an R^2 cut-off of h
-abline(h=0.55,col="red")
-
-# Mean connectivity as a function of the soft-thresholding power
-plot(sft1$fitIndices[,1], sft1$fitIndices[,5],
-     xlab="Soft Threshold (power)",ylab="Mean Connectivity", type="n",
-     main = paste("Mean connectivity"))
-text(sft1$fitIndices[,1], sft1$fitIndices[,5], labels=powers1, cex=cex1,col="red")
-
-#Calculating adjacincies with soft threshold of 6
-softPower = 6
 adjacency = adjacency(k1, power = softPower);
 
 # Turn adjacency into topological overlap 
@@ -97,11 +71,8 @@ dissTOM1 = 1-TOM1
 
 # Call the hierarchical cluste ring function 
 geneTree1 = hclust(as.dist(dissTOM1), method = "average"); 
-# Plot the resulting clustering tree (dendrogram) 
-sizeGrWindow(12,9) 
-plot(geneTree1, xlab="", sub="", main = "Gene clustering on TOM-based dissimilarity", labels = FALSE, hang = 0.04);
 
-# We like large modules, so we set the minimum module size relatively high: 
+# Calculate eigengenes 
 minModuleSize = 10; 
 # Module identification using dynamic tree cut: 
 dynamicMods1 = cutreeDynamic(dendro = geneTree1, distM = dissTOM1, deepSplit = 2, pamRespectsDendro = FALSE, minClusterSize = minModuleSize); 
@@ -110,11 +81,6 @@ table(dynamicMods1)
 # Convert numeric lables into colors 
 dynamicColors1 = labels2colors(dynamicMods1) 
 table(dynamicColors1) 
-# Plot the dendrogram and colors underneath 
-sizeGrWindow(8,6) 
-q1<-plotDendroAndColors(geneTree1, dynamicColors1, "Dynamic Tree Cut", dendroLabels = FALSE, hang = 0.03, addGuide = TRUE, guideHang = 0.05, main = "Age one gene dendrogram")
-
-# Calculate eigengenes 
 
 # Tue May 12 11:35:46 2020 ------------------------------
 MEList1 = moduleEigengenes(sz_stage_1 %>% t(), colors = dynamicMods1)
@@ -125,25 +91,13 @@ MEs = MEList1$eigengenes
 MEDiss1 = 1-cor(MEs); 
 # Cluster module eigengenes 
 METree1 = hclust(as.dist(MEDiss1), method = "average"); 
-# Plot the result 
-sizeGrWindow(7, 6) 
-plot(METree1, main = "Clustering of module eigengenes", xlab = "", sub = "")
-
 MEDissThres1 = 1
-# Plot the cut line into the dendrogram
-abline(h=MEDissThres1, col = "red")
-# Call an automatic merging function
+
 merge1 = mergeCloseModules(k1, dynamicColors1, cutHeight = MEDissThres1, verbose = 3) # missing the 1 here
 # The merged module colors
 mergedColors1 = merge1$colors;
 # Eigengenes of the new merged modules:
 mergedMEs1 = merge1$newMEs
-sizeGrWindow(12, 9)
-#pdf(file = "Plots/geneDendro-3.pdf", wi = 9, he = 6)
-plotDendroAndColors(geneTree1, cbind(dynamicColors1, mergedColors1), #mergedColors1 was called mergedColours so I have corrected
-                    c("Dynamic Tree Cut", "Merged dynamic"),
-                    dendroLabels = FALSE, hang = 0.03,
-                    addGuide = TRUE, guideHang = 0.05)
 
 # Rename to moduleColors
 moduleColors1 = mergedColors1
@@ -161,10 +115,6 @@ MEs1 = MEList1$eigengenes
 MEDiss1 = 1-cor(MEs1); 
 # Cluster module eigengenes 
 METree1 = hclust(as.dist(MEDiss1), method = "average"); 
-# Plot the result 
-sizeGrWindow(7, 6) 
-plot(METree1, main = "Clustering of module eigengenes", xlab = "", sub = "")
-
 # Calculate topological overlap anew: this could be done more efficiently by saving the TOM
 # calculated during module detection, but let us do it again here.
 dissTOM1 = 1-TOMsimilarityFromExpr(k1, power = softPower);
@@ -173,24 +123,9 @@ plotTOM1 = dissTOM1^softPower;
 # Set diagonal to NA for a nicer plot
 diag(plotTOM1) = NA;
 # Call the plot function
-sizeGrWindow(9,9)
-TOMplot(plotTOM1, geneTree1, moduleColors1, main = "Network heatmap plot for Sz genes for stage One")
 
 MEs1 = moduleEigengenes(k1, moduleColors1)$eigengenes
-sizeGrWindow(5,7.5);
-par(cex = 0.9)
-plotEigengeneNetworks(MEs1, "", marDendro = c(0,4,1,2), marHeatmap = c(3,4,1,2), cex.lab = 0.8, xLabelsAngle
-                      = 90)
 
-# Plot the dendrogram
-sizeGrWindow(6,6);
-par(cex = 1.0)
-plotEigengeneNetworks(MEs1, "Eigengene dendrogram", marDendro = c(0,4,2,0),
-                      plotHeatmaps = FALSE)
-# Plot the heatmap matrix (note: this plot will overwrite the dendrogram plot)
-par(cex = 1.0)
-plotEigengeneNetworks(MEs1, "Eigengene adjacency heatmap for developmental stage One", marHeatmap = c(3,4,2,2),
-                     plotDendrograms = FALSE, xLabelsAngle = 9)
 
 moduleEigengenes(k1, 
                 moduleColors1, 
@@ -204,7 +139,7 @@ moduleEigengenes(k1,
                 scale = TRUE,
                 verbose = 0, indent = 0)
 
-chooseTopHubInEachModule(
+hub_genes <- chooseTopHubInEachModule(
   k1, 
   moduleColors1, 
   omitColors = "grey", 
@@ -216,48 +151,45 @@ geneModuleMembership1 = as.data.frame(cor(k1, MEs11, use = "p"))
 # Sun Mar 14 10:40:49 2021 ------------------------------
 # this is the anRichment part
 
-GOenr1 = enrichmentAnalysis(
-  classLabels = moduleColors1, identifiers = allLLIDs$LOCUSLINK_ID,#moduleColors should be moduleColors1
-  refCollection = GOcollection,
-  useBackground = "allOrgGenes",
-  threshold = 1e-4,
-  thresholdType = "Bonferroni",
-  getOverlapEntrez = TRUE,
-  getOverlapSymbols = TRUE,
-  ignoreLabels = "grey")
-
-
-GO_per_set1 <- cbind(GOenr1$enrichmentTable$class, 
-                     GOenr1$enrichmentTable$dataSetID,  
-                     GOenr1$enrichmentTable$dataSetName, 
-                     GOenr1$enrichmentTable$FDR)
-
-tail(GO_per_set1)
-
-colnames(GO_per_set1) <- c("Module", "GO term", "GO process", "FDR")
-
-# Pull the top (most significant) for each module
-
-top_GO_per_module1 <- GO_per_set1[!duplicated(GO_per_set1[,1]), ]
-colnames(top_GO_per_module1) <- c("Module", "GO term", "GO process", "FDR")
+# GOenr1 = enrichmentAnalysis(
+#   classLabels = moduleColors1, identifiers = allLLIDs$LOCUSLINK_ID,#moduleColors should be moduleColors1
+#   refCollection = GOcollection,
+#   useBackground = "allOrgGenes",
+#   threshold = 1e-4,
+#   thresholdType = "Bonferroni",
+#   getOverlapEntrez = TRUE,
+#   getOverlapSymbols = TRUE,
+#   ignoreLabels = "grey")
+# 
+# 
+# GO_per_set1 <- cbind(GOenr1$enrichmentTable$class, 
+#                      GOenr1$enrichmentTable$dataSetID,  
+#                      GOenr1$enrichmentTable$dataSetName, 
+#                      GOenr1$enrichmentTable$FDR)
+# 
+# 
+# colnames(GO_per_set1) <- c("Module", "GO term", "GO process", "FDR")
+# 
+# # Pull the top (most significant) for each module
+# 
+# top_GO_per_module1 <- GO_per_set1[!duplicated(GO_per_set1[,1]), ]
+# colnames(top_GO_per_module1) <- c("Module", "GO term", "GO process", "FDR")
 
 # Recalculate module eigengenes
 MEs1 = moduleEigengenes(k1, moduleColors1)$eigengenes
 
-plotEigengeneNetworks(MEs1, "", marDendro = c(0,4,1,2), marHeatmap = c(3,4,1,2), cex.lab = 0.8, xLabelsAngle
-                      = 90) 
 
-write.csv(GO_per_set1, file="GO_per_set1.csv")
-GO_per_set1 <- as.data.frame(GO_per_set1)
+# write.csv(GO_per_set1, file="GO_per_set1.csv")
+# GO_per_set1 <- as.data.frame(GO_per_set1)
 # Sun Mar 14 13:52:11 2021 ------------------------------
-module_colours <- table(GO_per_set1$Module) %>% names()
+module_colours <- names(hub_genes)
 
-module_csv <- function(colour){
-  filename <- glue::glue("cytoscape/stage{stage}/GO_per_set1_{colour}.csv")
-  write_csv(GO_per_set1[GO_per_set1$Module == colour,], file = filename)
-}
-
-map(module_colours, module_csv)
+# module_csv <- function(colour){
+#   filename <- glue::glue("cytoscape/stage{stage}/GO_per_set1_{colour}.csv")
+#   write_csv(GO_per_set1[GO_per_set1$Module == colour,], file = filename)
+# }
+# 
+# map(module_colours, module_csv)
 
 geneInfoALL<-data.frame(geneIDs = colnames(k1), moduleColor=moduleColors1)
 geneModuleMembership1 <- as.data.frame(cor(k1, MEs11, use = "p")) #module membership for all genes all modules
@@ -275,32 +207,25 @@ colourModules <- function(colour){
   cytoblue1 <- exportNetworkToCytoscape(cor3,
                                         altNodeNames =vec3,
                                         nodeAttr=geneModuleMembershipblue)
+  cytoblue1$edgeData <- cytoblue1$edgeData %>% 
+    left_join(pf)
+  cytoblue11 = cytoblue1$edgeData %>% mutate(weight = abs(weight)) %>%
+    dplyr::filter(weight > 0.7)
   write.csv(cytoblue1$edgeData, glue::glue("cytoscape/stage{stage}/cyto_{colour}EDGE{stage}.csv"), quote=FALSE)
   write.csv(cytoblue1$nodeData, glue::glue("cytoscape/stage{stage}/cyto_{colour}NODE{1}.csv"), quote=FALSE)
-  save(cytoblue1, file="cytoblue1.Rdata")
+  save(cytoblue1, file=glue::glue("cytoscape/stage{stage}/cyto{colour}{stage}.Rdata"))
+  write.csv(cytoblue11, 
+            glue::glue("cytoscape/stage{stage}/cyto_{colour}EDGE{stage}1.csv"),
+                       quote=FALSE)
 }
-
-map(module_colours, colourModules)
-
 
 pf <- df %>%
   janitor::clean_names() %>%
   separate_rows(gene_s_tagged) %>%
-  dplyr::select(genes = gene_s_tagged, p_value) %>%
+  dplyr::select(fromNode = gene_s_tagged, p_value) %>%
   distinct()
 
+map(module_colours, colourModules)
 
-make_edges <- function(colour){
-  datablue1 <- read_csv(glue::glue("cyto_{colour}EDGE{stage}.csv"))
-  datablue1$fromNode2 = datablue1$fromNode
-  names(datablue1)[8] <- "genes"
-  cytoblue1 <- datablue1 %>% 
-    left_join(pf) %>% 
-    dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
-  cytoblue11 = cytoblue1 %>% mutate(weight = abs(weight)) %>%
-    dplyr::filter(weight > 0.7)
-  write.csv(cytoblue1, "cyto_{colour}EDGE{stage}.csv",quote=FALSE)
-  write.csv(cytoblue11, "cyto_{colour}EDGE{stage}1.csv",quote=FALSE)
-}
-
-make_edges(module_colours)
+write_csv(tibble(colours = moduleColors1), 
+          glue::glue("anRichment/stage{stage}/module_colours.csv"))

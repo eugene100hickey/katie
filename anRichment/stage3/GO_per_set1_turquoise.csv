@@ -1,0 +1,265 @@
+Module,GO term,GO process,FDR
+turquoise,GO:0110165,cellular anatomical entity,1.3309969196492195e-105
+turquoise,GO:0005575,cellular_component,1.2826459365237397e-104
+turquoise,GO:0003674,molecular_function,9.165820193988394e-103
+turquoise,GO:0008150,biological_process,1.4600484136185532e-91
+turquoise,GO:0005488,binding,6.344382006548391e-87
+turquoise,GO:0009987,cellular process,1.8969691648713197e-86
+turquoise,GO:0043226,organelle,6.090561661292916e-83
+turquoise,GO:0005622,intracellular,9.175017070479877e-80
+turquoise,GO:0005515,protein binding,5.4643050081360035e-73
+turquoise,GO:0043229,intracellular organelle,1.1830761876502512e-71
+turquoise,GO:0043227,membrane-bounded organelle,4.159249252959539e-71
+turquoise,GO:0005737,cytoplasm,6.248794273213972e-66
+turquoise,GO:0043231,intracellular membrane-bounded organelle,1.6745562529901085e-60
+turquoise,GO:0065007,biological regulation,1.0753223113571004e-57
+turquoise,GO:0050789,regulation of biological process,2.856231349572941e-52
+turquoise,GO:0050794,regulation of cellular process,3.5809622485295126e-49
+turquoise,GO:0008152,metabolic process,2.8365547077536905e-44
+turquoise,GO:0071704,organic substance metabolic process,1.440780272745002e-43
+turquoise,GO:0044238,primary metabolic process,1.5918112536578624e-43
+turquoise,GO:0016043,cellular component organization,7.658783363862401e-43
+turquoise,GO:0071840,cellular component organization or biogenesis,1.8603540156463134e-42
+turquoise,GO:0044237,cellular metabolic process,2.3213916848661683e-42
+turquoise,GO:0006807,nitrogen compound metabolic process,3.025224919198002e-41
+turquoise,GO:0016020,membrane,3.6228189135076314e-40
+turquoise,GO:0043170,macromolecule metabolic process,2.959997456652731e-38
+turquoise,GO:0050896,response to stimulus,5.882824337864002e-35
+turquoise,GO:0044260,cellular macromolecule metabolic process,4.94264806555803e-34
+turquoise,GO:0005634,nucleus,4.127597706735429e-33
+turquoise,GO:1901564,organonitrogen compound metabolic process,8.566013821035104e-32
+turquoise,GO:0003824,catalytic activity,1.1089042252661613e-30
+turquoise,GO:0051179,localization,8.470445973765521e-30
+turquoise,GO:0031974,membrane-enclosed lumen,1.4961614372125402e-29
+turquoise,GO:0043233,organelle lumen,1.4961614372125402e-29
+turquoise,GO:0070013,intracellular organelle lumen,1.4961614372125402e-29
+turquoise,GO:0019538,protein metabolic process,6.149952746586994e-29
+turquoise,GO:0005829,cytosol,3.275194777365961e-28
+turquoise,GO:0034641,cellular nitrogen compound metabolic process,1.736930730338485e-27
+turquoise,GO:0051716,cellular response to stimulus,6.62782818023554e-27
+turquoise,GO:0019222,regulation of metabolic process,7.742288074517617e-27
+turquoise,GO:0044267,cellular protein metabolic process,2.213421945777193e-26
+turquoise,GO:0032502,developmental process,3.978872596143958e-26
+turquoise,GO:0032501,multicellular organismal process,1.299688646200068e-25
+turquoise,GO:0006996,organelle organization,2.6566227303309253e-25
+turquoise,GO:0005654,nucleoplasm,8.400529059686475e-25
+turquoise,GO:0031323,regulation of cellular metabolic process,1.1593160670353123e-24
+turquoise,GO:0048522,positive regulation of cellular process,2.3036952867959657e-24
+turquoise,GO:0048518,positive regulation of biological process,4.0966851398639625e-24
+turquoise,GO:0023052,signaling,5.518352650605503e-24
+turquoise,GO:0007154,cell communication,7.179004837631376e-24
+turquoise,GO:0060255,regulation of macromolecule metabolic process,7.463142714633882e-24
+turquoise,GO:0031981,nuclear lumen,7.463142714633882e-24
+turquoise,GO:0009058,biosynthetic process,2.1046880957001768e-23
+turquoise,GO:0048856,anatomical structure development,2.6647947627810023e-23
+turquoise,GO:1901576,organic substance biosynthetic process,3.218575333751794e-23
+turquoise,GO:0048519,negative regulation of biological process,3.2210687841894136e-23
+turquoise,GO:1901363,heterocyclic compound binding,4.2703857738426824e-23
+turquoise,GO:1901360,organic cyclic compound metabolic process,5.03806131829751e-23
+turquoise,GO:0080090,regulation of primary metabolic process,5.678337980379416e-23
+turquoise,GO:0097159,organic cyclic compound binding,1.0841506783450599e-22
+turquoise,GO:0051234,establishment of localization,1.566224246632437e-22
+turquoise,GO:0006810,transport,1.6999069840727978e-22
+turquoise,GO:0046483,heterocycle metabolic process,2.3765747640509727e-22
+turquoise,GO:0010467,gene expression,2.9080177015603144e-22
+turquoise,GO:0043167,ion binding,3.1382679386182334e-22
+turquoise,GO:0006725,cellular aromatic compound metabolic process,3.560468158831014e-22
+turquoise,GO:0065008,regulation of biological quality,4.437154877599029e-22
+turquoise,GO:0007165,signal transduction,7.0217069651368825e-22
+turquoise,GO:0006139,nucleobase-containing compound metabolic process,7.261161127541587e-22
+turquoise,GO:0044249,cellular biosynthetic process,1.019037916949904e-21
+turquoise,GO:0043228,non-membrane-bounded organelle,2.1056460223148257e-21
+turquoise,GO:0012505,endomembrane system,3.0025099805661742e-21
+turquoise,GO:0051171,regulation of nitrogen compound metabolic process,3.158164182326574e-21
+turquoise,GO:0007275,multicellular organism development,3.665874276859147e-21
+turquoise,GO:0043232,intracellular non-membrane-bounded organelle,8.793982972361837e-21
+turquoise,GO:0048869,cellular developmental process,1.4840376873268156e-20
+turquoise,GO:0090304,nucleic acid metabolic process,1.682353105091113e-20
+turquoise,GO:0048731,system development,4.609575901775968e-20
+turquoise,GO:0032991,protein-containing complex,8.735341185780055e-20
+turquoise,GO:0030154,cell differentiation,1.281912361384183e-19
+turquoise,GO:0044271,cellular nitrogen compound biosynthetic process,1.5072742846814992e-19
+turquoise,GO:0009059,macromolecule biosynthetic process,2.0391593014954936e-19
+turquoise,GO:0048523,negative regulation of cellular process,3.0879744171977423e-19
+turquoise,GO:0016070,RNA metabolic process,2.3297105475745063e-18
+turquoise,GO:0034645,cellular macromolecule biosynthetic process,3.104286855828577e-18
+turquoise,GO:0016787,hydrolase activity,1.1141399387416381e-17
+turquoise,GO:0048583,regulation of response to stimulus,1.4341692131207565e-16
+turquoise,GO:0010468,regulation of gene expression,2.068018717144491e-16
+turquoise,GO:0043412,macromolecule modification,2.573869222276029e-16
+turquoise,GO:0010646,regulation of cell communication,3.3725895768583046e-16
+turquoise,GO:0023051,regulation of signaling,5.609713118409967e-16
+turquoise,GO:0031090,organelle membrane,1.0617678644253504e-15
+turquoise,GO:0006464,cellular protein modification process,1.8151630423279237e-15
+turquoise,GO:0036211,protein modification process,1.8151630423279237e-15
+turquoise,GO:0009889,regulation of biosynthetic process,1.879651988915144e-15
+turquoise,GO:0010556,regulation of macromolecule biosynthetic process,2.7926250646319103e-15
+turquoise,GO:0031326,regulation of cellular biosynthetic process,3.2016254368547094e-15
+turquoise,GO:0035556,intracellular signal transduction,3.24089773138693e-15
+turquoise,GO:0042802,identical protein binding,5.3499513184189096e-15
+turquoise,GO:0008283,cell population proliferation,5.3499513184189096e-15
+turquoise,GO:0019219,regulation of nucleobase-containing compound metabolic process,5.892974517054357e-15
+turquoise,GO:0031325,positive regulation of cellular metabolic process,1.2617762317445643e-14
+turquoise,GO:0065009,regulation of molecular function,1.798602092741421e-14
+turquoise,GO:0120025,plasma membrane bounded cell projection,1.9251539781582913e-14
+turquoise,GO:0051252,regulation of RNA metabolic process,2.4336843589065344e-14
+turquoise,GO:0033036,macromolecule localization,3.7170722384965047e-14
+turquoise,GO:2000112,regulation of cellular macromolecule biosynthetic process,4.200879614644638e-14
+turquoise,GO:0140096,"catalytic activity, acting on a protein",5.109659036244475e-14
+turquoise,GO:0071944,cell periphery,5.635516601845164e-14
+turquoise,GO:0042995,cell projection,6.049909119037009e-14
+turquoise,GO:0048513,animal organ development,6.138446438543894e-14
+turquoise,GO:0120036,plasma membrane bounded cell projection organization,8.902465091425395e-14
+turquoise,GO:0022607,cellular component assembly,9.32083231860397e-14
+turquoise,GO:0043168,anion binding,9.943090673585494e-14
+turquoise,GO:0032268,regulation of cellular protein metabolic process,1.2301122648039422e-13
+turquoise,GO:0010604,positive regulation of macromolecule metabolic process,1.2704600071399567e-13
+turquoise,GO:0009893,positive regulation of metabolic process,1.4175549424700549e-13
+turquoise,GO:0030030,cell projection organization,1.7616709167318824e-13
+turquoise,GO:0007399,nervous system development,2.2169759661736485e-13
+turquoise,GO:0005886,plasma membrane,2.295116546686707e-13
+turquoise,GO:0051246,regulation of protein metabolic process,2.3334393316914797e-13
+turquoise,GO:0003676,nucleic acid binding,3.349126173884123e-13
+turquoise,GO:0044085,cellular component biogenesis,3.351475214800236e-13
+turquoise,GO:0051239,regulation of multicellular organismal process,4.532115950627327e-13
+turquoise,GO:0051641,cellular localization,4.591461199101735e-13
+turquoise,GO:0006928,movement of cell or subcellular component,5.291578310279833e-13
+turquoise,GO:0018130,heterocycle biosynthetic process,6.016508661904964e-13
+turquoise,GO:0019438,aromatic compound biosynthetic process,6.633722703280835e-13
+turquoise,GO:0051173,positive regulation of nitrogen compound metabolic process,6.864594330642142e-13
+turquoise,GO:1901362,organic cyclic compound biosynthetic process,7.585514070593613e-13
+turquoise,GO:0036094,small molecule binding,1.2172192935981438e-12
+turquoise,GO:0034654,nucleobase-containing compound biosynthetic process,1.2259104183011394e-12
+turquoise,GO:0033554,cellular response to stress,1.4093815354531618e-12
+turquoise,GO:0031982,vesicle,1.4613280167206819e-12
+turquoise,GO:0050790,regulation of catalytic activity,2.3114601962678233e-12
+turquoise,GO:0019899,enzyme binding,2.47144453204047e-12
+turquoise,GO:0097367,carbohydrate derivative binding,2.521777020140787e-12
+turquoise,GO:0009966,regulation of signal transduction,2.6537535749678306e-12
+turquoise,GO:0031224,intrinsic component of membrane,2.6604801854395057e-12
+turquoise,GO:0008104,protein localization,2.747301407152623e-12
+turquoise,GO:0042221,response to chemical,4.623266734879377e-12
+turquoise,GO:0022008,neurogenesis,4.650568532717492e-12
+turquoise,GO:0048699,generation of neurons,4.6600596815020755e-12
+turquoise,GO:0032879,regulation of localization,4.897779292086461e-12
+turquoise,GO:0006950,response to stress,6.837854189312974e-12
+turquoise,GO:0071702,organic substance transport,6.996766803002351e-12
+turquoise,GO:1902531,regulation of intracellular signal transduction,8.288706070499258e-12
+turquoise,GO:0030182,neuron differentiation,8.626109950250675e-12
+turquoise,GO:0006796,phosphate-containing compound metabolic process,9.94890009371299e-12
+turquoise,GO:0006508,proteolysis,1.0943108530066638e-11
+turquoise,GO:0017076,purine nucleotide binding,1.2032660950002986e-11
+turquoise,GO:0006793,phosphorus metabolic process,1.321696116893903e-11
+turquoise,GO:0009891,positive regulation of biosynthetic process,1.4305567117256395e-11
+turquoise,GO:0000166,nucleotide binding,1.5022305112559002e-11
+turquoise,GO:1901265,nucleoside phosphate binding,1.517795869669904e-11
+turquoise,GO:0016021,integral component of membrane,2.544167888517196e-11
+turquoise,GO:0043603,cellular amide metabolic process,2.7187800875147454e-11
+turquoise,GO:0097659,nucleic acid-templated transcription,2.8427417594748092e-11
+turquoise,GO:0009892,negative regulation of metabolic process,3.202973473933805e-11
+turquoise,GO:0032774,RNA biosynthetic process,3.222942889021944e-11
+turquoise,GO:0048468,cell development,3.304229946450702e-11
+turquoise,GO:0030054,cell junction,3.899157796022178e-11
+turquoise,GO:0031328,positive regulation of cellular biosynthetic process,4.1998340395523e-11
+turquoise,GO:0032555,purine ribonucleotide binding,4.8269814063109293e-11
+turquoise,GO:0032553,ribonucleotide binding,6.101195370676385e-11
+turquoise,GO:0051128,regulation of cellular component organization,6.308828617458609e-11
+turquoise,GO:0006351,"transcription, DNA-templated",6.353026047126568e-11
+turquoise,GO:0044248,cellular catabolic process,8.148916931200291e-11
+turquoise,GO:1903506,regulation of nucleic acid-templated transcription,8.49446422088934e-11
+turquoise,GO:0042592,homeostatic process,8.625316167151908e-11
+turquoise,GO:0009056,catabolic process,8.772001586883803e-11
+turquoise,GO:2001141,regulation of RNA biosynthetic process,8.842150809302723e-11
+turquoise,GO:0043005,neuron projection,1.0478094953363365e-10
+turquoise,GO:0006355,"regulation of transcription, DNA-templated",1.6772344065797682e-10
+turquoise,GO:0051649,establishment of localization in cell,3.6229082217723225e-10
+turquoise,GO:0042886,amide transport,3.965394509921985e-10
+turquoise,GO:0042127,regulation of cell population proliferation,3.9978726246637436e-10
+turquoise,GO:0035639,purine ribonucleoside triphosphate binding,4.2715881601546553e-10
+turquoise,GO:0010605,negative regulation of macromolecule metabolic process,6.309488014379979e-10
+turquoise,GO:0005856,cytoskeleton,7.101377373544817e-10
+turquoise,GO:0045935,positive regulation of nucleobase-containing compound metabolic process,8.76340765800436e-10
+turquoise,GO:0071705,nitrogen compound transport,8.947506823405024e-10
+turquoise,GO:0007166,cell surface receptor signaling pathway,9.09658183643135e-10
+turquoise,GO:0010557,positive regulation of macromolecule biosynthetic process,1.0289784433644355e-9
+turquoise,GO:0051049,regulation of transport,1.0289784433644355e-9
+turquoise,GO:0044093,positive regulation of molecular function,1.0852991872396237e-9
+turquoise,GO:0055085,transmembrane transport,1.9206541950290007e-9
+turquoise,GO:0043933,protein-containing complex subunit organization,2.2404227191706056e-9
+turquoise,GO:0003723,RNA binding,2.61613208427562e-9
+turquoise,GO:0015031,protein transport,3.0508249291212255e-9
+turquoise,GO:0046983,protein dimerization activity,4.106217528399936e-9
+turquoise,GO:0030554,adenyl nucleotide binding,4.252761056547394e-9
+turquoise,GO:0015833,peptide transport,4.751017588088063e-9
+turquoise,GO:0016071,mRNA metabolic process,6.175773053902017e-9
+turquoise,GO:0005739,mitochondrion,6.696958520884565e-9
+turquoise,GO:0006518,peptide metabolic process,6.839600037904946e-9
+turquoise,GO:0051254,positive regulation of RNA metabolic process,8.972066915402018e-9
+turquoise,GO:0045184,establishment of protein localization,9.332200293690733e-9
+turquoise,GO:0006811,ion transport,1.037907447161657e-8
+turquoise,GO:0046872,metal ion binding,1.0581827805807115e-8
+turquoise,GO:0010033,response to organic substance,1.0593970380669392e-8
+turquoise,GO:0048584,positive regulation of response to stimulus,1.22454015258662e-8
+turquoise,GO:0031329,regulation of cellular catabolic process,1.299601915124232e-8
+turquoise,GO:0036477,somatodendritic compartment,1.3247230670960344e-8
+turquoise,GO:0048666,neuron development,1.4946578771443872e-8
+turquoise,GO:1901566,organonitrogen compound biosynthetic process,1.5838294108579794e-8
+turquoise,GO:0048870,cell motility,1.6444267678997258e-8
+turquoise,GO:0051674,localization of cell,1.6444267678997258e-8
+turquoise,GO:0031399,regulation of protein modification process,1.6719597707114553e-8
+turquoise,GO:0032559,adenyl ribonucleotide binding,1.6806321323741493e-8
+turquoise,GO:0006366,transcription by RNA polymerase II,1.6980077109871382e-8
+turquoise,GO:0009653,anatomical structure morphogenesis,1.8023173837638992e-8
+turquoise,GO:0043169,cation binding,2.07990536789027e-8
+turquoise,GO:0033365,protein localization to organelle,2.2124329937622594e-8
+turquoise,GO:0005576,extracellular region,2.2169178766206753e-8
+turquoise,GO:0010629,negative regulation of gene expression,2.3813018556801037e-8
+turquoise,GO:0042803,protein homodimerization activity,2.527402025905754e-8
+turquoise,GO:0065003,protein-containing complex assembly,2.5804889272533267e-8
+turquoise,GO:0031324,negative regulation of cellular metabolic process,2.6439316701377007e-8
+turquoise,GO:0010628,positive regulation of gene expression,3.0490562189021594e-8
+turquoise,GO:0080134,regulation of response to stress,3.080454414194654e-8
+turquoise,GO:0033043,regulation of organelle organization,3.1497965259125623e-8
+turquoise,GO:0043604,amide biosynthetic process,3.494678603257174e-8
+turquoise,GO:1901575,organic substance catabolic process,3.625686585439074e-8
+turquoise,GO:0040011,locomotion,4.061030401006445e-8
+turquoise,GO:0031175,neuron projection development,4.0805353286833444e-8
+turquoise,GO:0031410,cytoplasmic vesicle,4.256191272020574e-8
+turquoise,GO:0097708,intracellular vesicle,4.378985664869038e-8
+turquoise,GO:0006325,chromatin organization,4.4809787294600875e-8
+turquoise,GO:0051130,positive regulation of cellular component organization,4.543838080268825e-8
+turquoise,GO:0008144,drug binding,4.871330776186499e-8
+turquoise,GO:0034220,ion transmembrane transport,4.974860382008281e-8
+turquoise,GO:0044281,small molecule metabolic process,5.3598941736121494e-8
+turquoise,GO:0007417,central nervous system development,6.710349882626722e-8
+turquoise,GO:0006915,apoptotic process,6.77961350054689e-8
+turquoise,GO:0043085,positive regulation of catalytic activity,6.968132455331498e-8
+turquoise,GO:0051276,chromosome organization,9.669599747972571e-8
+turquoise,GO:0005794,Golgi apparatus,1.0421010524306065e-7
+turquoise,GO:0034613,cellular protein localization,1.0438469458661597e-7
+turquoise,GO:0010647,positive regulation of cell communication,1.1368616392531289e-7
+turquoise,GO:0070727,cellular macromolecule localization,1.159257018925632e-7
+turquoise,GO:0016740,transferase activity,1.181173334427642e-7
+turquoise,GO:0030425,dendrite,1.1998125707743872e-7
+turquoise,GO:0016310,phosphorylation,1.21074799036965e-7
+turquoise,GO:0023056,positive regulation of signaling,1.219979411167713e-7
+turquoise,GO:1902494,catalytic complex,1.2342517858738277e-7
+turquoise,GO:0097447,dendritic tree,1.2505111393778711e-7
+turquoise,GO:0044877,protein-containing complex binding,1.3605787491427466e-7
+turquoise,GO:0005524,ATP binding,1.3956132360089356e-7
+turquoise,GO:0098588,bounding membrane of organelle,1.4872561035748855e-7
+turquoise,GO:0016477,cell migration,1.5126213734915615e-7
+turquoise,GO:0051247,positive regulation of protein metabolic process,1.5707429384653891e-7
+turquoise,GO:0060322,head development,1.5786768191868548e-7
+turquoise,GO:0099080,supramolecular complex,1.6021202799545935e-7
+turquoise,GO:0051172,negative regulation of nitrogen compound metabolic process,1.6434101964631308e-7
+turquoise,GO:0016570,histone modification,1.750457929782146e-7
+turquoise,GO:0045202,synapse,1.8021434068431854e-7
+turquoise,GO:0006357,regulation of transcription by RNA polymerase II,1.8021434068431854e-7
+turquoise,GO:0032270,positive regulation of cellular protein metabolic process,1.8193263927272262e-7
+turquoise,GO:0009894,regulation of catabolic process,2.0592220575430932e-7
+turquoise,GO:0051336,regulation of hydrolase activity,2.0592220575430932e-7
+turquoise,GO:1903508,positive regulation of nucleic acid-templated transcription,2.0593744139645963e-7
+turquoise,GO:1902680,positive regulation of RNA biosynthetic process,2.0724340352726872e-7
+turquoise,GO:0010941,regulation of cell death,2.0914793046597688e-7
+turquoise,GO:0005215,transporter activity,2.1063395784833582e-7

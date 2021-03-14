@@ -17,14 +17,17 @@ unlink(temp_file)     # deletes the temporary file
 all_sz_genes <- df$`Gene(s) tagged` %>% 
   str_split(",") %>% 
   unlist() %>% 
+  str_trim() %>% 
   as.data.frame() %>% 
   distinct()
 names(all_sz_genes) <- "GENE_SYMBOL"
 
-data("dataset_adult")
+data("dataset_5_stages")
 #all_sz_genes <- all_sz_genes %>% filter(GENE_SYMBOL %in% dataset_adult$hgnc_symbol)
 
-ABA_genes <- dataset_adult %>% select(hgnc_symbol) %>% distinct()
+ABA_genes <- dataset_5_stages %>% 
+  dplyr::select(hgnc_symbol) %>% 
+  distinct()
 
 ABA_sz_genes <- all_sz_genes %>% 
   filter(GENE_SYMBOL %in% ABA_genes$hgnc_symbol)
@@ -34,4 +37,4 @@ ABA_locuslinked <- ABA_sz_genes %>%
   select(GENE_SYMBOL, LOCUSLINK_ID) %>% 
   distinct()
 
-write_csv(ABA_locuslinked, "/home/eugene/Desktop/Academic/Research/SZ_eugene/LocusLinkedIDs/locuslinkedIDs.csv")
+write_csv(ABA_locuslinked, "locuslinkedIDs.csv")

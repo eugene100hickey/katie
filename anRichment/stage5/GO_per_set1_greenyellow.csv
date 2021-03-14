@@ -1,0 +1,21 @@
+Module,GO term,GO process,FDR
+greenyellow,GO:0110165,cellular anatomical entity,3.0787024819996396e-25
+greenyellow,GO:0005575,cellular_component,1.4995701286888188e-24
+greenyellow,GO:0005488,binding,1.1371861956762693e-22
+greenyellow,GO:0003674,molecular_function,7.730786262603268e-21
+greenyellow,GO:0008150,biological_process,1.094902123868238e-19
+greenyellow,GO:0009987,cellular process,3.216702819727904e-17
+greenyellow,GO:0005622,intracellular,3.9762961167474414e-17
+greenyellow,GO:0043226,organelle,5.9920368074980685e-16
+greenyellow,GO:0043229,intracellular organelle,2.6990548885968448e-14
+greenyellow,GO:0043227,membrane-bounded organelle,1.881740166530366e-13
+greenyellow,GO:0005737,cytoplasm,8.520741498031071e-13
+greenyellow,GO:0005515,protein binding,3.372289774194628e-12
+greenyellow,GO:0043231,intracellular membrane-bounded organelle,5.2489988942489994e-12
+greenyellow,GO:0005634,nucleus,8.624366230392774e-9
+greenyellow,GO:0043167,ion binding,1.0126565429541079e-8
+greenyellow,GO:0050789,regulation of biological process,1.0356679833792932e-8
+greenyellow,GO:0016020,membrane,1.8176015595806712e-8
+greenyellow,GO:0044238,primary metabolic process,2.4767106330173436e-8
+greenyellow,GO:0065007,biological regulation,4.4364880587308884e-8
+greenyellow,GO:0050794,regulation of cellular process,1.8480231508061863e-7
