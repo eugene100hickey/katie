@@ -10,7 +10,7 @@ params:
 ---
 
 ```{r setup, echo = F}
-knitr::opts_chunk$set(echo = F, warning = F, message = F, cache = F, include = T)
+knitr::opts_chunk$set(echo = T, warning = F, message = F, cache = F, include = T)
 ```
 
 ```{r libraries, cache = F}
@@ -105,7 +105,7 @@ p1 + p2
 ```
 
 ```{r adjacencies}
-#Calculating adjacincies with soft threshold of 7
+#Calculating adjacincies with soft threshold of params$softpower
 softPower5 = params$softpower
 adjacency5 = adjacency(k5, power = softPower5);
 
@@ -230,9 +230,9 @@ plot(METree5, main = glue("Clustering of module eigengenes for age category  {st
 ```{r dissTOM, eval = T}
 # Calculate topological overlap anew: this could be done more efficiently by saving the TOM
 # calculated during module detection, but let us do it again here.
-dissTOM5 = 1-TOMsimilarityFromExpr(k5, power = 7);
+dissTOM5 = 1-TOMsimilarityFromExpr(k5, power = params$softpower);
 # Transform dissTOM with a power to make moderately strong connections more visible in the heatmap
-plotTOM5 = dissTOM5^7;
+plotTOM5 = dissTOM5^params$softpower;
 # Set diagonal to NA for a nicer plot
 diag(plotTOM5) = NA;
 # Call the plot function
@@ -260,7 +260,7 @@ moduleEigengenes(k5,
                  excludeGrey = FALSE,
                  grey = if (is.numeric(moduleColors1)) 0 else "grey",
                  subHubs =TRUE,
-                 softPower = 7,
+                 softPower = params$softpower,
                  scale = TRUE,
                  verbose = 0, indent = 0)
 
@@ -268,7 +268,7 @@ chooseTopHubInEachModule(
   k5,
   moduleColors5,
   omitColors = "grey",
-  power = 7,
+  power = params$softpower,
   type = "unsigned")
 
 geneModuleMembership5 = as.data.frame(cor(k5, MEs55, use = "p"))

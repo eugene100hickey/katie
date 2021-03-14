@@ -20,6 +20,7 @@ unlink(temp_file)     # deletes the temporary file
 all_sz_genes <- df$`Gene(s) tagged` %>% 
   str_split(",") %>% 
   unlist() %>% 
+  str_trim() %>% 
   as.data.frame() %>% 
   distinct()
 names(all_sz_genes) <- "genes"
