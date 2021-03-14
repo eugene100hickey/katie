@@ -20,7 +20,7 @@ library(WGCNA)
 
 # Tue May 12 11:15:45 2020 ------------------------------
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(ABAData, httr, readxl, tidyverse, patchwork, ggplotify, janitor, ggrepel, ggtext, glue)
+pacman::p_load(ABAData, httr, readxl, tidyverse, patchwork, ggplotify, janitor, ggrepel, ggtext, glue, DT)
 theme_set(theme_minimal())
 ```
 
@@ -197,7 +197,7 @@ geneInfoALL5 <- data.frame(geneIDs = colnames(k5),
                            moduleColor=mergedColors5)
 geneInfoALL5 %>% 
   arrange(moduleColor) %>% 
-  knitr::kable()
+  DT::datatable()
 # Eigengenes of the new merged modules:
 mergedMEs5 = merge5$newMEs
 #pdf(file = "Plots/geneDendro-3.pdf", wi = 9, he = 6)
