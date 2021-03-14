@@ -1,0 +1,11 @@
+Module,GO term,GO process,FDR
+lightcyan,GO:0009987,cellular process,0.00196683184664784
+lightcyan,GO:0008144,drug binding,0.00322496292106332
+lightcyan,GO:0008150,biological_process,0.00344428891543468
+lightcyan,GO:0051539,"4 iron, 4 sulfur cluster binding",0.00426471641599112
+lightcyan,GO:0110165,cellular anatomical entity,0.00445376274113206
+lightcyan,GO:0005575,cellular_component,0.00591354682521758
+lightcyan,GO:0051536,iron-sulfur cluster binding,0.00894891645041994
+lightcyan,GO:0051540,metal cluster binding,0.00894891645041994
+lightcyan,GO:0006996,organelle organization,0.0115993345621713
+lightcyan,GO:0043167,ion binding,0.0175129506155373
