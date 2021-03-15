@@ -121,9 +121,14 @@ plot(geneTree5, xlab="", sub="", main = glue("Gene clustering on TOM-based dissi
 
 ```{r dendro_colours}
 # We like large modules, so we set the minimum module size relatively high: 
-minModuleSize = 50; 
+minModuleSize = 10; 
 # Module identification using dynamic tree cut: 
-dynamicMods5 = cutreeDynamic(dendro = geneTree5, distM = dissTOM5, deepSplit = 2, pamRespectsDendro = FALSE, minClusterSize = minModuleSize); 
+dynamicMods5 = cutreeDynamic(dendro = geneTree5, 
+                             distM = dissTOM5, 
+                             deepSplit = 2, 
+                             pamRespectsDendro = FALSE, 
+                             minClusterSize = minModuleSize,
+                             cutHeight = 0.95); 
 table(dynamicMods5)
 
 # Convert numeric lables into colors 
@@ -151,13 +156,12 @@ MEDiss5 = 1-cor(MEs5);
 METree5 = hclust(as.dist(MEDiss5), method = "average"); 
 # Plot the result 
 plot(METree5, main = glue("Clustering of module eigengenes for stage  {stage}"), xlab = "", sub = "")
+MEDissThres5 = 0.85
+# Plot the cut line into the dendrogram
+abline(h=MEDissThres5, col = "red")
 ```
 
 ```{r more_dendro_colours, fig.height=12, fig.width=16}
-
-MEDissThres5 = 1
-# Plot the cut line into the dendrogram
-# abline(h=MEDissThres5, col = "red")
 # Call an automatic merging function
 merge5 = mergeCloseModules(k5, dynamicColors5, cutHeight = MEDissThres5, verbose = 3)
 # The merged module colors
@@ -197,7 +201,7 @@ geneInfoALL5 <- data.frame(geneIDs = colnames(k5),
                            moduleColor=mergedColors5)
 geneInfoALL5 %>% 
   arrange(moduleColor) %>% 
-  knitr::kable()
+  DT::datatable()
 # Eigengenes of the new merged modules:
 mergedMEs5 = merge5$newMEs
 #pdf(file = "Plots/geneDendro-3.pdf", wi = 9, he = 6)
