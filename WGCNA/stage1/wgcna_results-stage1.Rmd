@@ -6,7 +6,7 @@ output:
   self_contained: true
 params:
   stage: 1
-  softpower: 6
+  softpower: 8
 ---
 
 ```{r setup, echo = F}
@@ -121,7 +121,7 @@ plot(geneTree5, xlab="", sub="", main = glue("Gene clustering on TOM-based dissi
 
 ```{r dendro_colours}
 # We like large modules, so we set the minimum module size relatively high: 
-minModuleSize = 10; 
+minModuleSize = 50; 
 # Module identification using dynamic tree cut: 
 dynamicMods5 = cutreeDynamic(dendro = geneTree5, distM = dissTOM5, deepSplit = 2, pamRespectsDendro = FALSE, minClusterSize = minModuleSize); 
 table(dynamicMods5)
