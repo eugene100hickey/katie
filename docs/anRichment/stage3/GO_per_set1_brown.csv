@@ -1,0 +1,109 @@
+Module,GO term,GO process,FDR
+brown,GO:0005575,cellular_component,2.8562929529240954e-59
+brown,GO:0110165,cellular anatomical entity,1.1122427248551161e-55
+brown,GO:0003674,molecular_function,5.077516085921985e-51
+brown,GO:0008150,biological_process,3.4018416230465346e-48
+brown,GO:0009987,cellular process,1.6013593225012236e-43
+brown,GO:0005488,binding,4.186088118894483e-40
+brown,GO:0005622,intracellular,4.5565348882955387e-39
+brown,GO:0043226,organelle,3.7890548994867513e-34
+brown,GO:0043229,intracellular organelle,1.5354516339409116e-31
+brown,GO:0043227,membrane-bounded organelle,7.372215557069913e-31
+brown,GO:0005515,protein binding,1.0792704817808669e-30
+brown,GO:0065007,biological regulation,1.028653235720703e-29
+brown,GO:0005737,cytoplasm,6.405117703933922e-27
+brown,GO:0043167,ion binding,8.667597619681467e-26
+brown,GO:0043231,intracellular membrane-bounded organelle,4.289406370162064e-23
+brown,GO:0008152,metabolic process,3.214458169446677e-22
+brown,GO:0050789,regulation of biological process,9.090275102769306e-22
+brown,GO:0044237,cellular metabolic process,1.4798924895723312e-21
+brown,GO:0043169,cation binding,3.3243983979748284e-19
+brown,GO:0051234,establishment of localization,3.8663332312862837e-19
+brown,GO:0071704,organic substance metabolic process,4.2756903351078155e-19
+brown,GO:0051179,localization,4.386632635134514e-19
+brown,GO:0032501,multicellular organismal process,2.6880799847744954e-18
+brown,GO:0050794,regulation of cellular process,4.23378922605511e-18
+brown,GO:0006810,transport,5.459964192825823e-18
+brown,GO:0044238,primary metabolic process,7.855131339526738e-18
+brown,GO:0046872,metal ion binding,4.2645578341271506e-17
+brown,GO:0065008,regulation of biological quality,7.836030428515099e-17
+brown,GO:0032502,developmental process,4.4157735797451906e-16
+brown,GO:0016020,membrane,6.648803370224956e-16
+brown,GO:0051641,cellular localization,1.6077499382893436e-15
+brown,GO:0071840,cellular component organization or biogenesis,1.851340228445725e-14
+brown,GO:0051649,establishment of localization in cell,2.60680465260037e-14
+brown,GO:0016043,cellular component organization,2.737904030240154e-14
+brown,GO:0003824,catalytic activity,2.744670057591144e-14
+brown,GO:0006807,nitrogen compound metabolic process,2.7513199694126374e-14
+brown,GO:0065009,regulation of molecular function,5.198105509060268e-14
+brown,GO:0005829,cytosol,5.975862674855818e-14
+brown,GO:0007275,multicellular organism development,1.9188365329310368e-13
+brown,GO:0048856,anatomical structure development,2.09868027164512e-13
+brown,GO:0043170,macromolecule metabolic process,1.6229713127588357e-12
+brown,GO:0005634,nucleus,1.7693301966020663e-12
+brown,GO:1901564,organonitrogen compound metabolic process,4.897779292086461e-12
+brown,GO:0048731,system development,1.0159261459907009e-11
+brown,GO:0009058,biosynthetic process,1.8291151870113533e-11
+brown,GO:0050896,response to stimulus,2.4142812940843353e-11
+brown,GO:1901576,organic substance biosynthetic process,4.436605860180754e-11
+brown,GO:0044260,cellular macromolecule metabolic process,4.8269814063109293e-11
+brown,GO:0019222,regulation of metabolic process,9.22744848346456e-11
+brown,GO:0044249,cellular biosynthetic process,1.1092775647349035e-10
+brown,GO:0050790,regulation of catalytic activity,1.3909969654717726e-10
+brown,GO:0031974,membrane-enclosed lumen,3.271386788556398e-10
+brown,GO:0043233,organelle lumen,3.271386788556398e-10
+brown,GO:0070013,intracellular organelle lumen,3.271386788556398e-10
+brown,GO:0071705,nitrogen compound transport,4.627380846379299e-10
+brown,GO:0120025,plasma membrane bounded cell projection,5.630683105837367e-10
+brown,GO:0019538,protein metabolic process,5.930183285063158e-10
+brown,GO:0006796,phosphate-containing compound metabolic process,6.533758109316815e-10
+brown,GO:0071702,organic substance transport,6.786618743590959e-10
+brown,GO:0006793,phosphorus metabolic process,8.011804112204974e-10
+brown,GO:0042995,cell projection,1.1604947025348675e-9
+brown,GO:0033036,macromolecule localization,1.2658105731019346e-9
+brown,GO:0044267,cellular protein metabolic process,1.5802534528981378e-9
+brown,GO:0046483,heterocycle metabolic process,1.866574022980769e-9
+brown,GO:0031982,vesicle,2.0012777250700573e-9
+brown,GO:0006725,cellular aromatic compound metabolic process,2.263601579224254e-9
+brown,GO:0048519,negative regulation of biological process,2.5759357188249387e-9
+brown,GO:0097159,organic cyclic compound binding,4.801425242076061e-9
+brown,GO:0031224,intrinsic component of membrane,5.359368547418422e-9
+brown,GO:1901360,organic cyclic compound metabolic process,7.05013580202052e-9
+brown,GO:1901363,heterocyclic compound binding,1.1580597883497168e-8
+brown,GO:0051716,cellular response to stimulus,1.5544121001264225e-8
+brown,GO:0016192,vesicle-mediated transport,2.0754312586138506e-8
+brown,GO:0060255,regulation of macromolecule metabolic process,2.1063839969918794e-8
+brown,GO:0046907,intracellular transport,2.333592294040479e-8
+brown,GO:0080090,regulation of primary metabolic process,2.4030468052579313e-8
+brown,GO:0048869,cellular developmental process,2.890546080367483e-8
+brown,GO:0016021,integral component of membrane,3.1458363189928923e-8
+brown,GO:0031981,nuclear lumen,3.402190741362675e-8
+brown,GO:0006996,organelle organization,3.5925735223504094e-8
+brown,GO:0007399,nervous system development,3.626336400014465e-8
+brown,GO:0007154,cell communication,3.652516468789082e-8
+brown,GO:0006139,nucleobase-containing compound metabolic process,3.782433654753605e-8
+brown,GO:0043005,neuron projection,3.7864037403417966e-8
+brown,GO:0016788,"hydrolase activity, acting on ester bonds",3.800931819512428e-8
+brown,GO:0008104,protein localization,4.180473781782575e-8
+brown,GO:0032991,protein-containing complex,4.256191272020574e-8
+brown,GO:0019899,enzyme binding,4.684934676307717e-8
+brown,GO:0012505,endomembrane system,5.5397643838337485e-8
+brown,GO:0031323,regulation of cellular metabolic process,5.7298615377126175e-8
+brown,GO:0050793,regulation of developmental process,8.644081435681513e-8
+brown,GO:0042592,homeostatic process,9.497712869827069e-8
+brown,GO:0034641,cellular nitrogen compound metabolic process,9.605493556029985e-8
+brown,GO:0015833,peptide transport,1.0001204587805188e-7
+brown,GO:0031410,cytoplasmic vesicle,1.0415266126901784e-7
+brown,GO:0097708,intracellular vesicle,1.055827455916104e-7
+brown,GO:0023052,signaling,1.067758512960004e-7
+brown,GO:0042886,amide transport,1.2657409659299046e-7
+brown,GO:0044281,small molecule metabolic process,1.4255864852828833e-7
+brown,GO:0043168,anion binding,1.4490600073728902e-7
+brown,GO:0042578,phosphoric ester hydrolase activity,1.6434101964631308e-7
+brown,GO:0006464,cellular protein modification process,1.6434101964631308e-7
+brown,GO:0036211,protein modification process,1.6434101964631308e-7
+brown,GO:0048518,positive regulation of biological process,1.644717714468297e-7
+brown,GO:0031090,organelle membrane,1.9719118036332118e-7
+brown,GO:0051239,regulation of multicellular organismal process,2.0019192358865482e-7
+brown,GO:0009056,catabolic process,2.048127146751159e-7
+brown,GO:0048523,negative regulation of cellular process,2.0665022035102985e-7

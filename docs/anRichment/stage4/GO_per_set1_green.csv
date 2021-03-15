@@ -1,0 +1,373 @@
+Module,GO term,GO process,FDR
+green,GO:0005575,cellular_component,9.979189627289426e-148
+green,GO:0110165,cellular anatomical entity,2.626522195562015e-145
+green,GO:0003674,molecular_function,5.970883244424284e-138
+green,GO:0008150,biological_process,9.179463223578754e-128
+green,GO:0009987,cellular process,1.642796851598836e-119
+green,GO:0005488,binding,8.151111266261773e-117
+green,GO:0005622,intracellular,1.5063333680198704e-110
+green,GO:0043226,organelle,1.2790561013628345e-107
+green,GO:0005515,protein binding,2.6058061489927146e-99
+green,GO:0043229,intracellular organelle,5.526399613680518e-94
+green,GO:0043227,membrane-bounded organelle,1.2264368408750355e-91
+green,GO:0005737,cytoplasm,9.69905612577141e-85
+green,GO:0065007,biological regulation,4.3403061148141796e-79
+green,GO:0043231,intracellular membrane-bounded organelle,5.697999987365754e-77
+green,GO:0050789,regulation of biological process,1.037286972429907e-70
+green,GO:0008152,metabolic process,1.0634871953090391e-67
+green,GO:0050794,regulation of cellular process,6.242231187272626e-67
+green,GO:0044237,cellular metabolic process,5.591670928293051e-64
+green,GO:0071704,organic substance metabolic process,6.89145183418109e-64
+green,GO:0044238,primary metabolic process,2.8594020903754887e-59
+green,GO:0016043,cellular component organization,9.885885321223516e-56
+green,GO:0071840,cellular component organization or biogenesis,9.958527820506908e-56
+green,GO:0006807,nitrogen compound metabolic process,4.3903474663220163e-54
+green,GO:0043170,macromolecule metabolic process,6.7467163526209907e-52
+green,GO:0016020,membrane,3.2332452886388565e-51
+green,GO:0005634,nucleus,8.141112573748508e-49
+green,GO:0044260,cellular macromolecule metabolic process,1.7688413806640375e-47
+green,GO:0050896,response to stimulus,8.863485093356763e-46
+green,GO:0032501,multicellular organismal process,2.0006037900116713e-43
+green,GO:0032502,developmental process,2.3044674798748908e-42
+green,GO:1901564,organonitrogen compound metabolic process,4.5185092722156825e-41
+green,GO:0048519,negative regulation of biological process,1.025005451663389e-40
+green,GO:0051179,localization,1.2861922242234106e-40
+green,GO:0005829,cytosol,1.6922740146202314e-40
+green,GO:0031974,membrane-enclosed lumen,2.4106764540142737e-40
+green,GO:0043233,organelle lumen,2.4106764540142737e-40
+green,GO:0070013,intracellular organelle lumen,2.4106764540142737e-40
+green,GO:0051716,cellular response to stimulus,1.6486958499456534e-39
+green,GO:0048856,anatomical structure development,1.1510114559876677e-37
+green,GO:0006996,organelle organization,1.2812520460737482e-37
+green,GO:0043167,ion binding,2.1427277672819195e-37
+green,GO:0019538,protein metabolic process,2.53258234027194e-37
+green,GO:0019222,regulation of metabolic process,7.212680822265739e-36
+green,GO:0051234,establishment of localization,1.7893351562045894e-35
+green,GO:0065008,regulation of biological quality,2.6921289257514836e-35
+green,GO:0007275,multicellular organism development,4.643910389080113e-35
+green,GO:0048523,negative regulation of cellular process,5.667026004229178e-35
+green,GO:0007154,cell communication,9.170593497293113e-35
+green,GO:0044267,cellular protein metabolic process,1.1929630488877523e-34
+green,GO:0006810,transport,2.5397565497603747e-34
+green,GO:0031981,nuclear lumen,1.3371328697499525e-33
+green,GO:0034641,cellular nitrogen compound metabolic process,2.7701549053754215e-33
+green,GO:0048518,positive regulation of biological process,3.0827327989139616e-33
+green,GO:0003824,catalytic activity,4.416880480321363e-33
+green,GO:0031323,regulation of cellular metabolic process,4.513888755452574e-33
+green,GO:0023052,signaling,5.8498264300433646e-33
+green,GO:0060255,regulation of macromolecule metabolic process,1.6546772203664005e-32
+green,GO:1901360,organic cyclic compound metabolic process,4.2330570601244935e-32
+green,GO:0007165,signal transduction,9.098430651044503e-32
+green,GO:0048731,system development,9.098430651044503e-32
+green,GO:0097159,organic cyclic compound binding,9.098430651044503e-32
+green,GO:0048522,positive regulation of cellular process,2.756036639027879e-31
+green,GO:0046483,heterocycle metabolic process,2.756036639027879e-31
+green,GO:0080090,regulation of primary metabolic process,4.221433070079299e-31
+green,GO:1901363,heterocyclic compound binding,4.854096827202371e-31
+green,GO:0006725,cellular aromatic compound metabolic process,4.933626541960291e-31
+green,GO:0005654,nucleoplasm,8.026553383190222e-30
+green,GO:0006139,nucleobase-containing compound metabolic process,8.380925248233218e-30
+green,GO:0051171,regulation of nitrogen compound metabolic process,1.1761450255121405e-29
+green,GO:0048869,cellular developmental process,1.7824157046526217e-29
+green,GO:0009058,biosynthetic process,1.1772223899261502e-28
+green,GO:0030154,cell differentiation,5.202131141528038e-28
+green,GO:1901576,organic substance biosynthetic process,5.202131141528038e-28
+green,GO:0043228,non-membrane-bounded organelle,2.6539543184964518e-27
+green,GO:0044249,cellular biosynthetic process,2.7013302026598534e-27
+green,GO:0090304,nucleic acid metabolic process,8.007407346065951e-27
+green,GO:0043232,intracellular non-membrane-bounded organelle,1.0325870775754141e-26
+green,GO:0010467,gene expression,4.272658715983986e-26
+green,GO:0044271,cellular nitrogen compound biosynthetic process,2.6864932433113822e-25
+green,GO:0012505,endomembrane system,3.6083477247856767e-25
+green,GO:0051239,regulation of multicellular organismal process,8.853890469028953e-25
+green,GO:0010646,regulation of cell communication,1.7402575726530786e-24
+green,GO:0065009,regulation of molecular function,2.707600494531932e-24
+green,GO:0023051,regulation of signaling,3.632729246630782e-24
+green,GO:0035556,intracellular signal transduction,5.425150510212484e-24
+green,GO:0120025,plasma membrane bounded cell projection,5.567004645385968e-24
+green,GO:0009059,macromolecule biosynthetic process,1.1879830525097973e-23
+green,GO:0071944,cell periphery,1.4322884724272196e-23
+green,GO:0048583,regulation of response to stimulus,1.958758279434878e-23
+green,GO:0032991,protein-containing complex,3.021879361271803e-23
+green,GO:0042995,cell projection,3.453626684806465e-23
+green,GO:0016070,RNA metabolic process,4.112739472169435e-23
+green,GO:0043412,macromolecule modification,4.3425146235887823e-23
+green,GO:0019899,enzyme binding,8.547887138063112e-23
+green,GO:0034645,cellular macromolecule biosynthetic process,8.694067325241094e-23
+green,GO:0071702,organic substance transport,2.0829710080530858e-22
+green,GO:0051641,cellular localization,2.0829710080530858e-22
+green,GO:0006464,cellular protein modification process,5.183979347768197e-22
+green,GO:0036211,protein modification process,5.183979347768197e-22
+green,GO:0005886,plasma membrane,6.22294836636996e-22
+green,GO:0010468,regulation of gene expression,1.3969988049722724e-21
+green,GO:0033036,macromolecule localization,1.9223476158406003e-21
+green,GO:0009893,positive regulation of metabolic process,9.054279934008177e-21
+green,GO:0010556,regulation of macromolecule biosynthetic process,9.761243637439283e-21
+green,GO:0043169,cation binding,1.3190287259863103e-20
+green,GO:0071705,nitrogen compound transport,1.4282071657012523e-20
+green,GO:0048513,animal organ development,2.5725179757683206e-20
+green,GO:0006950,response to stress,2.5725179757683206e-20
+green,GO:1901362,organic cyclic compound biosynthetic process,3.966985414925046e-20
+green,GO:0009966,regulation of signal transduction,4.022932118541283e-20
+green,GO:0010604,positive regulation of macromolecule metabolic process,4.022932118541283e-20
+green,GO:0003676,nucleic acid binding,4.543232387401047e-20
+green,GO:0046872,metal ion binding,5.491985637495816e-20
+green,GO:0018130,heterocycle biosynthetic process,6.054506615712958e-20
+green,GO:0009889,regulation of biosynthetic process,6.217419964494306e-20
+green,GO:0019219,regulation of nucleobase-containing compound metabolic process,6.217419964494306e-20
+green,GO:0019438,aromatic compound biosynthetic process,6.877512916814735e-20
+green,GO:0009056,catabolic process,7.140022249842829e-20
+green,GO:0031326,regulation of cellular biosynthetic process,7.47523474964834e-20
+green,GO:0033554,cellular response to stress,7.47523474964834e-20
+green,GO:0007399,nervous system development,7.854162594005292e-20
+green,GO:0051252,regulation of RNA metabolic process,8.055923195121397e-20
+green,GO:0031325,positive regulation of cellular metabolic process,1.1267694728422992e-19
+green,GO:0050790,regulation of catalytic activity,1.2528800103151727e-19
+green,GO:0051649,establishment of localization in cell,1.5105665817813844e-19
+green,GO:0032268,regulation of cellular protein metabolic process,2.1009091304150725e-19
+green,GO:0051246,regulation of protein metabolic process,2.2100302344421526e-19
+green,GO:2000112,regulation of cellular macromolecule biosynthetic process,2.949007241232408e-19
+green,GO:0034654,nucleobase-containing compound biosynthetic process,3.551206931920338e-19
+green,GO:0006793,phosphorus metabolic process,4.345412606463778e-19
+green,GO:0042221,response to chemical,4.345412606463778e-19
+green,GO:0008104,protein localization,5.056053725495279e-19
+green,GO:0043005,neuron projection,6.218055769275933e-19
+green,GO:0044248,cellular catabolic process,7.0060580596488425e-19
+green,GO:0031224,intrinsic component of membrane,7.805475632772646e-19
+green,GO:0006796,phosphate-containing compound metabolic process,1.1733276361838256e-18
+green,GO:0032879,regulation of localization,1.1733276361838256e-18
+green,GO:0042592,homeostatic process,2.0772684381710013e-18
+green,GO:0009892,negative regulation of metabolic process,5.72902394109239e-18
+green,GO:0022607,cellular component assembly,6.191357745597292e-18
+green,GO:0050793,regulation of developmental process,6.70014311162175e-18
+green,GO:0042886,amide transport,9.854150306878147e-18
+green,GO:0007166,cell surface receptor signaling pathway,1.3191246504710434e-17
+green,GO:0016787,hydrolase activity,1.3702403485616902e-17
+green,GO:0051173,positive regulation of nitrogen compound metabolic process,1.3702403485616902e-17
+green,GO:0044085,cellular component biogenesis,1.488250375468407e-17
+green,GO:0016021,integral component of membrane,1.5952184299135173e-17
+green,GO:0051128,regulation of cellular component organization,2.2637025687031648e-17
+green,GO:0031090,organelle membrane,2.4601853763624023e-17
+green,GO:0015833,peptide transport,2.529094292112477e-17
+green,GO:0022008,neurogenesis,5.811957688951742e-17
+green,GO:0015031,protein transport,6.043515626320462e-17
+green,GO:0043168,anion binding,1.1092584360763596e-16
+green,GO:0051049,regulation of transport,1.1902182032030452e-16
+green,GO:0042802,identical protein binding,1.1997079807294968e-16
+green,GO:0031982,vesicle,1.2899620603755652e-16
+green,GO:0036477,somatodendritic compartment,2.261425006926103e-16
+green,GO:0045184,establishment of protein localization,3.8169743166773946e-16
+green,GO:0030054,cell junction,4.424597627158058e-16
+green,GO:0048468,cell development,4.778206353188696e-16
+green,GO:0120036,plasma membrane bounded cell projection organization,4.896902562035372e-16
+green,GO:0010033,response to organic substance,7.33640411087446e-16
+green,GO:0010605,negative regulation of macromolecule metabolic process,7.700713830695225e-16
+green,GO:0044281,small molecule metabolic process,7.822607144115809e-16
+green,GO:0048699,generation of neurons,9.230902680473706e-16
+green,GO:0097659,nucleic acid-templated transcription,1.0440759319686986e-15
+green,GO:0030030,cell projection organization,1.1624615271535785e-15
+green,GO:0032774,RNA biosynthetic process,1.2418593535888986e-15
+green,GO:2000026,regulation of multicellular organismal development,1.353333438387808e-15
+green,GO:1903506,regulation of nucleic acid-templated transcription,1.7462853259627725e-15
+green,GO:2001141,regulation of RNA biosynthetic process,1.867192261529091e-15
+green,GO:0006351,"transcription, DNA-templated",1.932646866797364e-15
+green,GO:0006355,"regulation of transcription, DNA-templated",2.7148557551302777e-15
+green,GO:0030182,neuron differentiation,3.4099855839898936e-15
+green,GO:0036094,small molecule binding,7.129179932528051e-15
+green,GO:0030425,dendrite,7.804883091606216e-15
+green,GO:0097447,dendritic tree,8.466756038110687e-15
+green,GO:1902531,regulation of intracellular signal transduction,1.1071818046319736e-14
+green,GO:0140096,"catalytic activity, acting on a protein",3.268784177475798e-14
+green,GO:1901575,organic substance catabolic process,3.746624996061113e-14
+green,GO:0007049,cell cycle,4.372829126359479e-14
+green,GO:0006508,proteolysis,4.533814517818431e-14
+green,GO:0046907,intracellular transport,1.754297051328595e-13
+green,GO:0051241,negative regulation of multicellular organismal process,1.8463205560863194e-13
+green,GO:0044093,positive regulation of molecular function,1.8463205560863194e-13
+green,GO:0008283,cell population proliferation,2.25639628818425e-13
+green,GO:0031324,negative regulation of cellular metabolic process,2.827527623054839e-13
+green,GO:0097367,carbohydrate derivative binding,3.441160819277542e-13
+green,GO:0031329,regulation of cellular catabolic process,5.7885868339028315e-13
+green,GO:0010647,positive regulation of cell communication,6.0882532187441e-13
+green,GO:0023056,positive regulation of signaling,6.904945106318569e-13
+green,GO:0048585,negative regulation of response to stimulus,8.727376205922119e-13
+green,GO:0051172,negative regulation of nitrogen compound metabolic process,8.978655239873907e-13
+green,GO:0010629,negative regulation of gene expression,9.256294452755366e-13
+green,GO:0006366,transcription by RNA polymerase II,9.595497741535268e-13
+green,GO:0016192,vesicle-mediated transport,1.1057673442790997e-12
+green,GO:0009894,regulation of catabolic process,1.228240901252765e-12
+green,GO:0044297,cell body,1.495496821032738e-12
+green,GO:0006357,regulation of transcription by RNA polymerase II,1.9203784744998747e-12
+green,GO:0070887,cellular response to chemical stimulus,1.987405444325815e-12
+green,GO:0051336,regulation of hydrolase activity,2.4659063819080336e-12
+green,GO:0016071,mRNA metabolic process,2.6668613539337275e-12
+green,GO:0098590,plasma membrane region,2.956333842762041e-12
+green,GO:0009653,anatomical structure morphogenesis,3.8493463627415556e-12
+green,GO:0007267,cell-cell signaling,4.015216900574762e-12
+green,GO:0003723,RNA binding,4.664866117432752e-12
+green,GO:0000166,nucleotide binding,5.017941285901222e-12
+green,GO:1901265,nucleoside phosphate binding,5.082914749572477e-12
+green,GO:0009057,macromolecule catabolic process,5.219123168800131e-12
+green,GO:0051247,positive regulation of protein metabolic process,5.270706798204502e-12
+green,GO:0006928,movement of cell or subcellular component,5.545432092728531e-12
+green,GO:0045595,regulation of cell differentiation,5.616649171251851e-12
+green,GO:0033043,regulation of organelle organization,6.583036276576794e-12
+green,GO:0043025,neuronal cell body,6.8263753305039624e-12
+green,GO:0060341,regulation of cellular localization,8.611961176468121e-12
+green,GO:0034613,cellular protein localization,9.407915633361496e-12
+green,GO:0070727,cellular macromolecule localization,1.1174205637603626e-11
+green,GO:0009891,positive regulation of biosynthetic process,1.2770990687856544e-11
+green,GO:0009967,positive regulation of signal transduction,1.4428739058759364e-11
+green,GO:0014069,postsynaptic density,1.7720089498398748e-11
+green,GO:0051276,chromosome organization,1.8035363259338944e-11
+green,GO:0044265,cellular macromolecule catabolic process,2.112150676099007e-11
+green,GO:0032279,asymmetric synapse,2.1812098835896068e-11
+green,GO:0045202,synapse,2.4707823010489198e-11
+green,GO:0016310,phosphorylation,2.9277336119617446e-11
+green,GO:0017076,purine nucleotide binding,2.934754061017953e-11
+green,GO:0031328,positive regulation of cellular biosynthetic process,2.956325126052828e-11
+green,GO:0097060,synaptic membrane,3.271244501580407e-11
+green,GO:0005739,mitochondrion,3.6054115020599865e-11
+green,GO:0048584,positive regulation of response to stimulus,3.956865168581021e-11
+green,GO:0010628,positive regulation of gene expression,5.349030686788938e-11
+green,GO:0005856,cytoskeleton,5.466181330777961e-11
+green,GO:0099572,postsynaptic specialization,5.891921316143804e-11
+green,GO:0098984,neuron to neuron synapse,6.497452519086323e-11
+green,GO:0032270,positive regulation of cellular protein metabolic process,6.792013973640951e-11
+green,GO:0045935,positive regulation of nucleobase-containing compound metabolic process,7.671735702484148e-11
+green,GO:0031399,regulation of protein modification process,7.910727417656902e-11
+green,GO:0042127,regulation of cell population proliferation,8.056606562161355e-11
+green,GO:0043436,oxoacid metabolic process,8.514351755289483e-11
+green,GO:0031410,cytoplasmic vesicle,8.575990509979094e-11
+green,GO:0010648,negative regulation of cell communication,8.578111982130261e-11
+green,GO:0097708,intracellular vesicle,8.879583673907614e-11
+green,GO:0023057,negative regulation of signaling,9.189752872000677e-11
+green,GO:0032555,purine ribonucleotide binding,9.21998122004299e-11
+green,GO:0080134,regulation of response to stress,9.49551253160051e-11
+green,GO:0006811,ion transport,1.0161762430025191e-10
+green,GO:0032553,ribonucleotide binding,1.1830423598825754e-10
+green,GO:0050767,regulation of neurogenesis,1.1910793130744956e-10
+green,GO:0008144,drug binding,1.2329620508590617e-10
+green,GO:0035639,purine ribonucleoside triphosphate binding,1.2646637034270942e-10
+green,GO:0006082,organic acid metabolic process,1.2699745510816952e-10
+green,GO:0009605,response to external stimulus,1.2958000979356643e-10
+green,GO:0006886,intracellular protein transport,1.4083788612050345e-10
+green,GO:0043933,protein-containing complex subunit organization,1.4083788612050345e-10
+green,GO:0051130,positive regulation of cellular component organization,1.4335768398216207e-10
+green,GO:0048666,neuron development,1.518299400240276e-10
+green,GO:0043085,positive regulation of catalytic activity,1.7018424718653089e-10
+green,GO:0019901,protein kinase binding,2.016094459924079e-10
+green,GO:0055085,transmembrane transport,2.1516194624414723e-10
+green,GO:0071310,cellular response to organic substance,2.1954912696286804e-10
+green,GO:1901566,organonitrogen compound biosynthetic process,2.760791078285374e-10
+green,GO:0019752,carboxylic acid metabolic process,2.8756176815789764e-10
+green,GO:0019900,kinase binding,3.294472577609416e-10
+green,GO:0051960,regulation of nervous system development,3.294472577609416e-10
+green,GO:0043603,cellular amide metabolic process,3.294472577609416e-10
+green,GO:0051254,positive regulation of RNA metabolic process,3.358928498485649e-10
+green,GO:0140110,transcription regulator activity,3.358928498485649e-10
+green,GO:0010557,positive regulation of macromolecule biosynthetic process,3.4950505635315303e-10
+green,GO:0098794,postsynapse,3.608475810963295e-10
+green,GO:0098588,bounding membrane of organelle,4.0455440028321436e-10
+green,GO:0006468,protein phosphorylation,4.707277841792744e-10
+green,GO:0006915,apoptotic process,5.075824045769285e-10
+green,GO:0006979,response to oxidative stress,5.378364447129249e-10
+green,GO:0008219,cell death,5.493803356253532e-10
+green,GO:0032880,regulation of protein localization,5.561845100740125e-10
+green,GO:0060284,regulation of cell development,5.592469321577814e-10
+green,GO:0030234,enzyme regulator activity,6.609002056268704e-10
+green,GO:0016740,transferase activity,7.381447388223873e-10
+green,GO:0048878,chemical homeostasis,7.89036808506884e-10
+green,GO:0099080,supramolecular complex,8.042136152258473e-10
+green,GO:0031175,neuron projection development,9.974309617807777e-10
+green,GO:0048471,perinuclear region of cytoplasm,1.144858255740582e-9
+green,GO:1901565,organonitrogen compound catabolic process,1.4223725904681018e-9
+green,GO:0045664,regulation of neuron differentiation,1.4669548028406396e-9
+green,GO:0030554,adenyl nucleotide binding,1.4877730802190089e-9
+green,GO:0007417,central nervous system development,1.915159259221099e-9
+green,GO:0065003,protein-containing complex assembly,1.9687313729715953e-9
+green,GO:0009968,negative regulation of signal transduction,1.9739283514178818e-9
+green,GO:0030424,axon,2.077252987926971e-9
+green,GO:0006325,chromatin organization,2.095594815301445e-9
+green,GO:0006812,cation transport,2.5116410404129868e-9
+green,GO:2000113,negative regulation of cellular macromolecule biosynthetic process,2.605991305409157e-9
+green,GO:0046983,protein dimerization activity,2.701484386909957e-9
+green,GO:0010558,negative regulation of macromolecule biosynthetic process,2.794963345828237e-9
+green,GO:0080135,regulation of cellular response to stress,2.934312595973645e-9
+green,GO:0012501,programmed cell death,3.984193367683224e-9
+green,GO:1902494,catalytic complex,4.0938435922342836e-9
+green,GO:0045944,positive regulation of transcription by RNA polymerase II,4.668480793262928e-9
+green,GO:0062197,cellular response to chemical stress,4.9169879649959124e-09
+green,GO:0032559,adenyl ribonucleotide binding,4.9733460647689736e-9
+green,GO:0034599,cellular response to oxidative stress,5.112417110426698e-9
+green,GO:0009888,tissue development,5.389498627330341e-9
+green,GO:0019220,regulation of phosphate metabolic process,6.6953297682390395e-9
+green,GO:0098772,molecular function regulator,6.6953297682390395e-9
+green,GO:0051174,regulation of phosphorus metabolic process,6.87000569841133e-9
+green,GO:0031327,negative regulation of cellular biosynthetic process,7.077596241978374e-9
+green,GO:0005524,ATP binding,7.565656900077723e-9
+green,GO:0022402,cell cycle process,8.113233033727908e-9
+green,GO:0010941,regulation of cell death,8.357931937920897e-9
+green,GO:0042803,protein homodimerization activity,8.597750771495879e-9
+green,GO:0031401,positive regulation of protein modification process,8.82620363963307e-9
+green,GO:0006629,lipid metabolic process,1.0108012969174495e-8
+green,GO:0016311,dephosphorylation,1.0208859841706924e-8
+green,GO:0009890,negative regulation of biosynthetic process,1.0208859841706924e-8
+green,GO:0051223,regulation of protein transport,1.0973833986356494e-8
+green,GO:0006873,cellular ion homeostasis,1.1586292971723275e-8
+green,GO:0003008,system process,1.2211690901254354e-8
+green,GO:0043604,amide biosynthetic process,1.2607105658776674e-8
+green,GO:0045211,postsynaptic membrane,1.291514199610056e-8
+green,GO:1901700,response to oxygen-containing compound,1.3302433530345284e-8
+green,GO:0005215,transporter activity,1.3942696414938373e-8
+green,GO:0098771,inorganic ion homeostasis,1.4634450065135102e-8
+green,GO:0050801,ion homeostasis,1.4931073881386923e-8
+green,GO:0034220,ion transmembrane transport,1.4931073881386923e-8
+green,GO:0042391,regulation of membrane potential,1.5596370268421712e-8
+green,GO:0043565,sequence-specific DNA binding,1.655934232655036e-8
+green,GO:0050804,modulation of chemical synaptic transmission,1.6713065190521622e-8
+green,GO:0099177,regulation of trans-synaptic signaling,1.7298632612865504e-8
+green,GO:0030001,metal ion transport,1.8570077745384413e-8
+green,GO:1903508,positive regulation of nucleic acid-templated transcription,1.9361773212601093e-8
+green,GO:0045893,"positive regulation of transcription, DNA-templated",1.946479706840245e-8
+green,GO:1902680,positive regulation of RNA biosynthetic process,1.958160510929615e-8
+green,GO:0070201,regulation of establishment of protein localization,1.9962448711791214e-8
+green,GO:0005576,extracellular region,2.0053380232364857e-8
+green,GO:0019725,cellular homeostasis,2.0194522201572103e-8
+green,GO:0008092,cytoskeletal protein binding,2.2412821767016017e-8
+green,GO:0090087,regulation of peptide transport,2.2416256748667973e-8
+green,GO:0051726,regulation of cell cycle,2.330605470889729e-8
+green,GO:0031625,ubiquitin protein ligase binding,2.5702518090820713e-8
+green,GO:0005694,chromosome,3.400723725431554e-8
+green,GO:0046903,secretion,3.6106237808410057e-8
+green,GO:0009628,response to abiotic stimulus,3.6533674374397824e-8
+green,GO:0098805,whole membrane,3.864883617259824e-8
+green,GO:0051129,negative regulation of cellular component organization,3.888946383906583e-8
+green,GO:0010564,regulation of cell cycle process,4.31550419030421e-8
+green,GO:0042981,regulation of apoptotic process,4.358863781101938e-8
+green,GO:0030003,cellular cation homeostasis,4.4941008455297184e-8
+green,GO:0003677,DNA binding,4.618137352786258e-8
+green,GO:0000278,mitotic cell cycle,4.827211114120801e-8
+green,GO:0002376,immune system process,5.0896256283992634e-8
+green,GO:0033365,protein localization to organelle,5.0896256283992634e-8
+green,GO:0044389,ubiquitin-like protein ligase binding,5.51860904112258e-8
+green,GO:0055080,cation homeostasis,5.751177431236034e-8
+green,GO:0003700,DNA-binding transcription factor activity,6.051807054897071e-8
+green,GO:0043067,regulation of programmed cell death,6.427340670786553e-8
+green,GO:0120035,regulation of plasma membrane bounded cell projection organization,7.061175085992393e-8
+green,GO:0051093,negative regulation of developmental process,8.53278706265802e-8
+green,GO:0031344,regulation of cell projection organization,9.062930808265467e-8
+green,GO:0005794,Golgi apparatus,1.0725429523367654e-7
+green,GO:0051050,positive regulation of transport,1.0885148175946565e-7
+green,GO:0010638,positive regulation of organelle organization,1.0885148175946565e-7
+green,GO:0010975,regulation of neuron projection development,1.2442422700009196e-7
+green,GO:0060249,anatomical structure homeostasis,1.2442422700009196e-7
+green,GO:0042327,positive regulation of phosphorylation,1.2872829018534307e-7
+green,GO:0044877,protein-containing complex binding,1.3562271704954293e-7
+green,GO:0040011,locomotion,1.385607121900114e-7
+green,GO:0022603,regulation of anatomical structure morphogenesis,1.4510405736719095e-7
+green,GO:0060322,head development,1.5861675309240862e-7
+green,GO:0030163,protein catabolic process,1.8308819427014818e-7
+green,GO:0000981,"DNA-binding transcription factor activity, RNA polymerase II-specific",1.8928486092133506e-7
+green,GO:0008324,cation transmembrane transporter activity,1.9393659493501024e-7
+green,GO:0016570,histone modification,1.9874768389251588e-7

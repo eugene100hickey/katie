@@ -1,0 +1,11 @@
+Module,GO term,GO process,FDR
+blue,GO:0032501,multicellular organismal process,0.0000367537942596935
+blue,GO:0110165,cellular anatomical entity,0.000058484264169193
+blue,GO:0065007,biological regulation,0.0000585151953163804
+blue,GO:0005575,cellular_component,0.0000821873466410907
+blue,GO:0008150,biological_process,0.000455403233557848
+blue,GO:0032502,developmental process,0.000594804381543384
+blue,GO:0050794,regulation of cellular process,0.00101259643522187
+blue,GO:0043226,organelle,0.00133562589294649
+blue,GO:0009987,cellular process,0.00189773562606706
+blue,GO:0050789,regulation of biological process,0.00209116385196701

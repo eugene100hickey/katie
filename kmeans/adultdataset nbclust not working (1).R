@@ -8,6 +8,8 @@ df <- read_excel(temp_file, sheet = 4, skip = 3) # reads into a dataframe. First
 unlink(temp_file)     # deletes the temporary file
 
 
+stage <- 1
+
 ##################################################################
 # makes sz_genes, a dataframe with a single column of the CLOZUK genes
 #######################################################################
@@ -15,45 +17,28 @@ unlink(temp_file)     # deletes the temporary file
 all_sz_genes <- df$`Gene(s) tagged` %>% 
   str_split(",") %>% 
   unlist() %>% 
+  str_trim() %>% 
   as.data.frame() %>% 
   distinct()
 names(all_sz_genes) <- "genes"
 
-library(ABAData)
-data("dataset_adult")
-
-pacman::p_load(httr, readxl, ABAData, tidyverse, ABAEnrichment, ggridges, NbClust, factoextra)
-
-
-sz_genes <- df$`Gene(s) tagged` %>% 
-  str_split(",") %>% 
-  unlist() %>% 
-  as.data.frame() %>% 
-  distinct()
-names(sz_genes) <- "genes"
-
-data("dataset_adult")
-
+data("dataset_5_stages")
 
 ########################################################################################
 # makes wide_allen_sz, a dataframe which has sz_genes as rownames, brain areas as columns
 # it's wide format and scaled
 ########################################################################################
 
-wide_allen_sz <-
-  dataset_adult %>% 
-  select(hgnc_symbol, structure, signal) %>% 
-  filter(hgnc_symbol %in% sz_genes$genes) %>% 
-  distinct() %>% 
-  spread(key = structure, value = signal) %>% 
-  remove_rownames() %>% 
-  column_to_rownames(var = "hgnc_symbol") %>% 
+sz_stage <- dataset_5_stages %>%
+  filter(hgnc_symbol %in% all_sz_genes$genes) %>% 
+  filter(age_category == stage) %>% 
+  dplyr::select(-c(entrezgene, ensembl_gene_id, age_category)) %>% 
+  pivot_wider(names_from = structure, values_from = signal) %>% 
+  column_to_rownames(var = "hgnc_symbol")%>%
   t() %>% 
   scale() %>% 
-  t() %>% 
-  as.data.frame()
+  t()
 
-stage<-wide_allen_sz
 
 selected <- c( "kl", "ch", "hartigan",  "cindex", "db",
                "silhouette", "duda", "pseudot2", 
@@ -63,7 +48,7 @@ selected <- c( "kl", "ch", "hartigan",  "cindex", "db",
                "dunn", "hubert", "sdindex", "dindex", "sdbw")
 results <- vector("list",length(selected))
 for (i in 1:length(selected)) {
-  results[[i]] <- try(NbClust(wide_allen_sz,
+  results[[i]] <- try(NbClust(sz_stage,
                               min.nc=1, max.nc=10,
                               method="ward.D", index=selected[i]))
 }

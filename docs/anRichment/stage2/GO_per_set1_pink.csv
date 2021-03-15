@@ -1,0 +1,11 @@
+Module,GO term,GO process,FDR
+pink,GO:0005515,protein binding,0.000000457632041984731
+pink,GO:0005488,binding,0.000000788383453996429
+pink,GO:0003674,molecular_function,0.00000702513961529124
+pink,GO:0110165,cellular anatomical entity,0.0000231577602636342
+pink,GO:0005575,cellular_component,0.0000359715919710203
+pink,GO:0016020,membrane,0.0000649868025284151
+pink,GO:0009987,cellular process,0.0000885389545842165
+pink,GO:0051179,localization,0.000182899008345345
+pink,GO:0008150,biological_process,0.000182899008345345
+pink,GO:0016021,integral component of membrane,0.000226856884615589
