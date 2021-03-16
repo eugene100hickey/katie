@@ -260,21 +260,37 @@ write.csv(GO_per_setFive, file="GO_per_setFive.csv")
 
 GO_per_setFive <- as.data.frame(GO_per_setFive)
 GO_per_setFivecont <- as.data.frame(GO_per_set_Fivecont)
+#Black
+GO_per_setFivecont_Black <- GO_per_setFivecont[GO_per_setFivecont$Module == "black",]
+write.csv(GO_per_setFivecont_Black, file="GO_per_setFive_blackcont.csv")
 #Blue
-
 GO_per_setFivecont_Blue <- GO_per_setFivecont[GO_per_setFivecont$Module == "blue",]
-write.csv(GO_per_setFivecont_Blue, file="GO_per_setFive_bluecont.csv")
-#Turq
-GO_per_setFivecont_Turq <- GO_per_setFivecont[GO_per_setFivecont$Module == "turquoise",]
-write.csv(GO_per_setFivecont_Turq, file="GO_per_setFive_turq.csv")
-#Yellow
-GO_per_setFivecont_Yellow <- GO_per_setFivecont[GO_per_setFivecont$Module == "yellow",]
-write.csv(GO_per_setFivecont_Yellow, file="GO_per_setFive_Yellow.csv")
+write.csv(GO_per_setFivecont_Blue, file="GO_per_setFive_Blue.csv")
+#Greenyellow
+GO_per_setFivecont_Greenyellow <- GO_per_setFivecont[GO_per_setFivecont$Module == "greenyellow",]
+write.csv(GO_per_setFivecont_Greenyellow, file="GO_per_setFive_Greenyellow.csv")
+#Brown
+GO_per_setFivecont_Brown <- GO_per_setFivecont[GO_per_setFivecont$Module == "brown",]
+write.csv(GO_per_setFivecont_Brown, file="GO_per_setFive_Brown.csv")
+#Lightcyan
+GO_per_setFivecont_Lightcyan <- GO_per_setFivecont[GO_per_setFivecont$Module == "lightcyan",]
+write.csv(GO_per_setFivecont_Lightcyan, file="GO_per_setFive_Lightcyan.csv")
+#Magenta
+GO_per_setFivecont_Magenta <- GO_per_setFivecont[GO_per_setFivecont$Module == "magenta",]
+write.csv(GO_per_setFivecont_Magenta, file="GO_per_setFive_Magenta.csv")
+#Pink
+GO_per_setFivecont_Pink <- GO_per_setFivecont[GO_per_setFivecont$Module == "pink",]
+write.csv(GO_per_setFivecont_Pink, file="GO_per_setFive_Pink.csv")
+#Purple
+GO_per_setFivecont_Purple <- GO_per_setFivecont[GO_per_setFivecont$Module == "purple",]
+write.csv(GO_per_setFivecont_Purple, file="GO_per_setFive_Purple.csv")
+#Red
+GO_per_setFivecont_Red <- GO_per_setFivecont[GO_per_setFivecont$Module == "red",]
+write.csv(GO_per_setFivecont_Red, file="GO_per_setFive_Red.csv")
 
 
 pdf("plotEigeneNetworks.pdf")
-plotEigengeneNetworks(MEsFive, "", marDendro = c(0,4,1,2), marHeatmap = c(3,4,1,2), cex.lab = 0.8, xLabelsAngle
-                      = 90) 
+plotEigengeneNetworks(MEsFive, "", marDendro = c(0,4,1,2), marHeatmap = c(3,4,1,2), cex.lab = 0.8, xLabel = 90) 
 dev.off()				  
 #Cytoscape
 
