@@ -52,7 +52,8 @@ pOne = sftOne$fitIndices %>%
   theme(axis.title.y = element_textbox_simple(
     orientation = "left-rotated",
     width = NULL)) +
-  geom_hline(yintercept = 0.77, col = "red" )
+  geom_hline(yintercept = 0.77, col = "
+red" )
 
 p2 = sftOne$fitIndices %>% 
   clean_names() %>% 
@@ -257,19 +258,31 @@ write.csv(GO_per_setOne, file="GO_per_setOne.csv")
 
 GO_per_setOne <- as.data.frame(GO_per_setOne)
 GO_per_setOnecont <- as.data.frame(GO_per_set_Onecont)
-#Blue
+#Black
 
-GO_per_setOnecont_Blue <- GO_per_setOnecont[GO_per_setOnecont$Module == "blue",]
-write.csv(GO_per_setOnecont_Blue, file="GO_per_setOne_bluecont.csv")
+GO_per_setOnecont_Black <- GO_per_setOnecont[GO_per_setOnecont$Module == "black",]
+write.csv(GO_per_setOnecont_Blue, file="GO_per_setOne_blackcont.csv")
 #Brown
 GO_per_setOnecont_Brown <- GO_per_setOnecont[GO_per_setOnecont$Module == "brown",]
 write.csv(GO_per_setOnecont_Brown, file="GO_per_setOne_brown.csv")
-#Turquoise
-GO_per_setOnecont_Turquoise <- GO_per_setOnecont[GO_per_setOnecont$Module == "turquoise",]
-write.csv(GO_per_setOnecont_Turquoise, file="GO_per_setOne_Turquoise.csv")
-
+#Cyan
+GO_per_setOnecont_Cyan <- GO_per_setOnecont[GO_per_setOnecont$Module == "cyan",]
+write.csv(GO_per_setOnecont_Cyan, file="GO_per_setOne_Cyan.csv")
+#GreenYellow
+GO_per_setOnecont_GreenYellow <- GO_per_setOnecont[GO_per_setOnecont$Module == "greenyellow",]
+write.csv(GO_per_setOnecont_GreenYellow, file="GO_per_setOne_GreenYellow.csv")
+#Magenta
+GO_per_setOnecont_Magenta <- GO_per_setOnecont[GO_per_setOnecont$Module == "magenta",]
+write.csv(GO_per_setOnecont_Magenta, file="GO_per_setOne_Magenta.csv")
+#Purple
+GO_per_setOnecont_Purple <- GO_per_setOnecont[GO_per_setOnecont$Module == "purple",]
+write.csv(GO_per_setOnecont_Purple, file="GO_per_setOne_Purple.csv")
+#Red
+GO_per_setOnecont_Red <- GO_per_setOnecont[GO_per_setOnecont$Module == "red",]
+write.csv(GO_per_setOnecont_Red, file="GO_per_setOne_Red.csv")
 
 pdf("plotEigeneNetworks.pdf")
+
 plotEigengeneNetworks(MEsOne, "", marDendro = c(0,4,1,2), marHeatmap = c(3,4,1,2), cex.lab = 0.8, xLabelsAngle
                       = 90) 
 dev.off()				  
@@ -277,23 +290,23 @@ dev.off()
 
 geneInfoALL<-data.frame(geneIDs = colnames(kOne), moduleColor=moduleColorsOne)
 
-blueModule<-subset(geneInfoALL, moduleColor == "blue", select = c("geneIDs", "moduleColor"))
-write.csv(blueModule, "blueModuleOne.csv")
+blackModule<-subset(geneInfoALL, moduleColor == "black", select = c("geneIDs", "moduleColor"))
+write.csv(blackModule, "blackModuleOne.csv")
 
 geneModuleMembership1 = as.data.frame(cor(kOne, MEsOne11, use = "p")) #module membership for all genes all modules
-geneModuleMembership1[blueModule$geneIDs,]->geneModuleMembershipOne_blue #get modulemembership for genes in blue module
-geneModuleMembershipOne_blue$MEblue->geneModuleMembership1blue #correlation of each gene with the with module eigengene for genes in blue module
+geneModuleMembership1[blackModule$geneIDs,]->geneModuleMembershipOne_black #get modulemembership for genes in blue module
+geneModuleMembershipOne_black$MEblack->geneModuleMembership1black #correlation of each gene with the with module eigengene for genes in blue module
 
-kOne[,blueModule$geneIDs] #get expression values for genes in blue module only
+kOne[,blackModule$geneIDs] #get expression values for genes in blue module only
 
-cor((kOne[,blueModule$geneIDs]))->cor3 #correlation of each gene expression value with every other gene in the blue module
+cor((kOne[,blackModule$geneIDs]))->cor3 #correlation of each gene expression value with every other gene in the blue module
 
 
 rownames(cor3)->vec3 # list of gene names in blue module
-exportNetworkToCytoscape(cor3, altNodeNames =vec3, nodeAttr=geneModuleMembershipOne_blue)->cytoblue1
-write.csv(cytoblue1$edgeData, "cyto_blueEDGE1.csv",quote=FALSE)
-write.csv(cytoblue1$nodeData, "cyto_blueNODE1.csv",quote=FALSE)
-save(cytoblue1, file="cytoblue1.Rdata")
+exportNetworkToCytoscape(cor3, altNodeNames =vec3, nodeAttr=geneModuleMembershipOne_black)->cytoblack1
+write.csv(cytoblack1$edgeData, "cyto_blackEDGE1.csv",quote=FALSE)
+write.csv(cytoblack1$nodeData, "cyto_blackNODE1.csv",quote=FALSE)
+save(cytoblack1, file="cytoblack1.Rdata")
 
 pacman::p_load(tidyverse, httr, readxl, janitor,dplyr)
 
@@ -313,64 +326,62 @@ pf <- df %>%
   ungroup()
 
 
-datablue1 <- read.csv("cyto_blueEDGE1.csv")
+datablack1 <- read.csv("cyto_blackEDGE1.csv")
+datablacl1$fromNode2 = datablack1$fromNode
 
-datablue1$fromNode2 = datablue1$fromNode
+names(datablack1)[8] <- "genes"
 
-names(datablue1)[8] <- "genes"
-
-cytoblue1 <- datablue1 %>% 
+cytoblack1 <- datablack1 %>% 
   left_join(pf) %>% 
   dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
 
 
-cytoblue11 = cytoblue1 %>% mutate(weight = abs(weight)) %>%
+cytoblack11 = cytoblack1 %>% mutate(weight = abs(weight)) %>%
   dplyr::filter(weight > 0.7)
-write.csv(cytoblue1, "cyto_blueEDGE1.csv",quote=FALSE)
-write.csv(cytoblue11, "cyto_blueEDGE11.csv",quote=FALSE)
+write.csv(cytoblack1, "cyto_blackEDGE1.csv",quote=FALSE)
+write.csv(cytoblack11, "cyto_blackEDGE11.csv",quote=FALSE)
 
 
-#Turq
-turquoiseModule1<-subset(geneInfoALL, moduleColor == "turquoise", select = c("geneIDs", "moduleColor"))
-write.csv(turquoiseModule1, "turquoiseModule1.csv")
+#Cyan
+CyanModule1<-subset(geneInfoALL, moduleColor == "cyan", select = c("geneIDs", "moduleColor"))
+write.csv(CyanModule1, "CyanModule1.csv")
 
 geneModuleMembership1 = as.data.frame(cor(kOne, MEsOne11, use = "p")) #module membership for all genes all modules
-geneModuleMembership1[turquoiseModule1$geneIDs,]->geneModuleMembership1_turquoise#get modulemembership for genes in blue module
-geneModuleMembership1_turquoise$MEturquoise->geneModuleMembershipturquoise #correlation of each gene with the with module eigengene for genes in blue module
+geneModuleMembership1[CyanModule1$geneIDs,]->geneModuleMembership1_cyan#get modulemembership for genes in blue module
+geneModuleMembership1_cyan$MEturquoise->geneModuleMembershipcyan #correlation of each gene with the with module eigengene for genes in blue module
 
-kOne[,turquoiseModule1$geneIDs] #get expression values for genes in turquoise module only
+kOne[,cyanModule1$geneIDs] #get expression values for genes in turquoise module only
 
-cor((kOne[,turquoiseModule1$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
+cor((kOne[,cyanModule1$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
 
 
 rownames(cor4)->vec4 # list of gene names in blue module
-exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership1_turquoise)->cytoturquoise1
+exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership1_cyan)->cytocyan1
 
 
-write.csv(cytoturquoise1$edgeData, "cyto_turquoiseEDGE1.csv",quote=FALSE)
-write.csv(cytoturquoise1$nodeData, "cyto_turquoiseNODE1.csv",quote=FALSE)
-save(cytoturquoise1, file="cytoturquoise1.Rdata")
+write.csv(cytocyan1$edgeData, "cyto_cyanEDGE1.csv",quote=FALSE)
+write.csv(cytocyan1$nodeData, "cyto_cyanNODE1.csv",quote=FALSE)
+save(cytocyan1, file="cytocyan1.Rdata")
 
-turquoiseModule<-subset(geneInfoALL, moduleColor == "turquoise", select = c("geneIDs", "moduleColor"))
-write.csv(turquoiseModule, "turquoiseModule.csv")
+cyanModule<-subset(geneInfoALL, moduleColor == "cyan", select = c("geneIDs", "moduleColor"))
+write.csv(cyanModule, "cyanModule.csv")
 
-dataturquoise1 <- read.csv("cyto_turquoiseEDGE1.csv")
+datacyan1 <- read.csv("cyto_cyanEDGE1.csv")
 
-dataturquoise1$fromNode2 = dataturquoise1$fromNode
+datacyan1$fromNode2 = datacyan1$fromNode
 
-names(dataturquoise1)[8] <- "genes"
+names(datacyan1)[8] <- "genes"
 
-cytoturquoise1 <- dataturquoise1 %>% 
+cytocyan1 <- datacyan1 %>% 
   left_join(pf) %>% 
   dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
 
+write.csv(cytocyan1, "cyto_cyanEDGE1.csv",quote=FALSE)
 
-write.csv(cytoturquoise1, "cyto_turquoiseEDGE1.csv",quote=FALSE)
-
-cytoturq11 = cytoturquoise1 %>% mutate(weight = abs(weight)) %>%
+cytocyan11 = cytocyan1 %>% mutate(weight = abs(weight)) %>%
   dplyr::filter(weight > 0.7)
 
-write.csv(cytoturq11, "cyto_turqEDGE11.csv",quote=FALSE)
+write.csv(cytocyan11, "cyto_cyanEDGE11.csv",quote=FALSE)
 #Brown
 geneInfoALL<-data.frame(geneIDs = colnames(kOne), moduleColor=moduleColorsOne)
 
@@ -388,25 +399,158 @@ cor((kOne[,brownModule$geneIDs]))->cor4 #correlation of each gene expression val
 rownames(cor4)->vec4 # list of gene names in blue module
 exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership1_brown)->cytobrown1
 
+#GreenYellow
+geneInfoALL<-data.frame(geneIDs = colnames(kOne), moduleColor=moduleColorsOne)
 
-write.csv(cytobrown1$edgeData, "cyto_brownEDGE1.csv",quote=FALSE)
-write.csv(cytobrown1$nodeData, "cyto_brownNODE1.csv",quote=FALSE)
-save(cytobrown1, file="cytobrown1.Rdata")
+greenyellowModule<-subset(geneInfoALL, moduleColor == "greenyellow", select = c("geneIDs", "moduleColor"))
+write.csv(greenyellowModule, "greenyellowModule.csv")
+geneModuleMembership1 = as.data.frame(cor(kOne, MEsOne11, use = "p")) #module membership for all genes all modules
+geneModuleMembership1[greenyellowModule$geneIDs,]->geneModuleMembership1_greenyellow#get modulemembership for genes in blue module
+geneModuleMembership1_greenyellow$MEgreenyellow->geneModuleMembershipgreenyellow #correlation of each gene with the with module eigengene for genes in blue module
 
-databrown1 <- read.csv("cyto_brownEDGE1.csv")
+kOne[,greenyellowModule$geneIDs] #get expression values for genes in turquoise module only
 
-databrown1$fromNode2 = databrown1$fromNode
+cor((kOne[,greenyellowModule$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
 
-names(databrown1)[8] <- "genes"
 
-cytobrown1 <- databrown1 %>% 
+rownames(cor4)->vec4 # list of gene names in blue module
+exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership1_greenyellow)->cytogreenyellow1
+
+write.csv(cytogreenyellow1$edgeData, "cyto_greenyellowEDGE1.csv",quote=FALSE)
+write.csv(cytogreenyellow1$nodeData, "cyto_greenyellowNODE1.csv",quote=FALSE)
+save(cytogreenyellow1, file="cytogreenyellow1.Rdata")
+
+greenyellow1 <- read.csv("cyto_greenyellowEDGE1.csv")
+
+datagreenyellow1$fromNode2 = datagreenyellow1$fromNode
+
+names(datagreenyellow1)[8] <- "genes"
+
+cytogreenyellow1 <- datagreenyellow1 %>% 
   left_join(pf) %>% 
   dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
 
 
-write.csv(cytobrown1, "cyto_brownEDGE1.csv",quote=FALSE)
+write.csv(cytogreenyellow1, "cyto_greenyellowEDGE1.csv",quote=FALSE)
 
-cytobrown11 = cytobrown1 %>% mutate(weight = abs(weight)) %>%
+cytogreenyellow11 = cytogreenyellow1 %>% mutate(weight = abs(weight)) %>%
   dplyr::filter(weight > 0.7)
 
-write.csv(cytobrown11, "cyto_brownEDGE11.csv",quote=FALSE)
+write.csv(cytogreenyellow11, "cyto_greenyellowEDGE11.csv",quote=FALSE)
+
+#Magenta
+geneInfoALL<-data.frame(geneIDs = colnames(kOne), moduleColor=moduleColorsOne)
+
+MagentaModule<-subset(geneInfoALL, moduleColor == "magenta", select = c("geneIDs", "moduleColor"))
+write.csv(MagentaModule, "MagentaModule.csv")
+geneModuleMembership1 = as.data.frame(cor(kOne, MEsOne11, use = "p")) #module membership for all genes all modules
+geneModuleMembership1[MagentaModule$geneIDs,]->geneModuleMembership1_Magenta#get modulemembership for genes in blue module
+geneModuleMembership1_Magenta$MEMagenta->geneModuleMembershipMagenta #correlation of each gene with the with module eigengene for genes in blue module
+
+kOne[,MagentaModule$geneIDs] #get expression values for genes in turquoise module only
+
+cor((kOne[,MagentaModule$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
+
+
+rownames(cor4)->vec4 # list of gene names in blue module
+exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership1_Magenta)->cytoMagenta1
+
+write.csv(cytoMagenta1$edgeData, "cyto_MagentaEDGE1.csv",quote=FALSE)
+write.csv(cytoMagenta1$nodeData, "cyto_MagentaNODE1.csv",quote=FALSE)
+save(cytoMagenta1, file="cytoMagenta1.Rdata")
+
+Magenta1 <- read.csv("cyto_MagentaEDGE1.csv")
+
+dataMagenta1$fromNode2 = dataMagenta1$fromNode
+
+names(dataMagenta1)[8] <- "genes"
+
+cytoMagenta1 <- dataMagenta1 %>% 
+  left_join(pf) %>% 
+  dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
+
+
+write.csv(cytoMagenta1, "cyto_MagentaEDGE1.csv",quote=FALSE)
+
+Magenta11 = Magenta1 %>% mutate(weight = abs(weight)) %>%
+  dplyr::filter(weight > 0.7)
+
+write.csv(cytoMagenta11, "cyto_MagentaEDGE11.csv",quote=FALSE)
+
+#Purple
+geneInfoALL<-data.frame(geneIDs = colnames(kOne), moduleColor=moduleColorsOne)
+
+PurpleModule<-subset(geneInfoALL, moduleColor == "purple", select = c("geneIDs", "moduleColor"))
+write.csv(PurpleModule, "PurpleModule.csv")
+geneModuleMembership1 = as.data.frame(cor(kOne, MEsOne11, use = "p")) #module membership for all genes all modules
+geneModuleMembership1[PurpleModule$geneIDs,]->geneModuleMembership1_Purple#get modulemembership for genes in blue module
+geneModuleMembership1_Purple$MEPurple->geneModuleMembershipPurple #correlation of each gene with the with module eigengene for genes in blue module
+
+kOne[,PurpleModule$geneIDs] #get expression values for genes in turquoise module only
+
+cor((kOne[,PurpleModule$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
+
+
+rownames(cor4)->vec4 # list of gene names in blue module
+exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership1_Purple)->cytoPurple1
+
+write.csv(cytoPurple1$edgeData, "cyto_PurpleEDGE1.csv",quote=FALSE)
+write.csv(cytoPurple1$nodeData, "cyto_PurpleNODE1.csv",quote=FALSE)
+save(cytoPurple1, file="cytoPurple1.Rdata")
+
+Purple1 <- read.csv("cyto_PurpleEDGE1.csv")
+
+dataPurple1$fromNode2 = dataPurple1$fromNode
+
+names(dataPurple1)[8] <- "genes"
+
+cytoPurple1 <- dataPurple1 %>% 
+  left_join(pf) %>% 
+  dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
+
+
+write.csv(cytoPurple1, "cyto_PurpleEDGE1.csv",quote=FALSE)
+
+Purple11 = Purple1 %>% mutate(weight = abs(weight)) %>%
+  dplyr::filter(weight > 0.7)
+
+write.csv(cytoPurple11, "cyto_PurpleEDGE11.csv",quote=FALSE)
+
+#Red
+geneInfoALL<-data.frame(geneIDs = colnames(kOne), moduleColor=moduleColorsOne)
+
+RedModule<-subset(geneInfoALL, moduleColor == "red", select = c("geneIDs", "moduleColor"))
+write.csv(RedModule, "RedModule.csv")
+geneModuleMembership1 = as.data.frame(cor(kOne, MEsOne11, use = "p")) #module membership for all genes all modules
+geneModuleMembership1[RedModule$geneIDs,]->geneModuleMembership1_Purple#get modulemembership for genes in blue module
+geneModuleMembership1_Red$MERed->geneModuleMembershipRed #correlation of each gene with the with module eigengene for genes in blue module
+
+kOne[,RedModule$geneIDs] #get expression values for genes in turquoise module only
+
+cor((kOne[,RedModule$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
+
+
+rownames(cor4)->vec4 # list of gene names in blue module
+exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership1_Red)->cytoRed1
+
+write.csv(cytoRed1$edgeData, "cyto_RedEDGE1.csv",quote=FALSE)
+write.csv(cytoRed1$nodeData, "cyto_RedNODE1.csv",quote=FALSE)
+save(cytoRed1, file="cytoRed1.Rdata")
+
+Purple1 <- read.csv("cyto_PurpleEDGE1.csv")
+
+dataRed1$fromNode2 = dataRed1$fromNode
+
+names(dataRed1)[8] <- "genes"
+
+cytoRed1 <- dataRed1 %>% 
+  left_join(pf) %>% 
+  dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
+
+
+write.csv(cytoRed1, "cyto_RedEDGE1.csv",quote=FALSE)
+
+Red11 = Red1 %>% mutate(weight = abs(weight)) %>%
+  dplyr::filter(weight > 0.7)
+
+write.csv(cytoRed11, "cyto_RedEDGE11.csv",quote=FALSE)
