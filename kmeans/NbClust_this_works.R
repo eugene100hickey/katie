@@ -5,8 +5,9 @@ library(NbClust)
 library(cluster)
 library(genes) # from devtools::install_github("eugene100hickey/genes")
 library(ggtext)
+source("kmeans/NbClust_without_Beale.R")
 
-stage <- 3
+stage <- 5
 
 
 if(!exists("dataset_5_stages")){
@@ -34,8 +35,10 @@ fviz_nbclust_new <- function(x, print.summary = TRUE,
           names(which.max(ss)),  ".\n\n")
     }
     df <- data.frame(Number_clusters = names(ss), freq = ss, stringsAsFactors = TRUE )
-    df <- df %>% 
-      mutate(Number_clusters = fct_relevel(Number_clusters, 0:20 %>% as.character))
+    max_cluster <- max(as.numeric(df$Number_clusters))
+    suppressWarnings(df <- df %>% 
+      mutate(Number_clusters = fct_relevel(Number_clusters, 
+                                           0:max_cluster %>% as.character)))
     p <- ggpubr::ggbarplot(df,  x = "Number_clusters", y = "freq", fill = barfill, color = barcolor)+
       labs(x = "Number of clusters k", y = "Frequency among all indices",
            title = paste0("Optimal number of clusters - k = ", names(which.max(ss)) ))
@@ -58,11 +61,11 @@ NbClust_by_stage <- function(stage = 1) {
   
   diss_matrix<- dist(wide_allen_sz, method = "euclidean", diag=FALSE)
   
-  z <- NbClust(wide_allen_sz, 
+  z <- NbClust_without_Beale(wide_allen_sz, 
                diss=diss_matrix, 
                distance = NULL, 
                min.nc=2, 
-               max.nc=20,
+               max.nc=6,
                method = "ward.D2", 
                index = "all")   
   fviz_nbclust_new(z) + 
