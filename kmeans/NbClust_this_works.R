@@ -30,7 +30,7 @@ NbClust_by_stage <- function(stage = 1) {
                diss=diss_matrix, 
                distance = NULL, 
                min.nc=2, 
-               max.nc=5,
+               max.nc=20,
                method = "ward.D2", 
                index = "all")   
   fviz_nbclust(z) + 
