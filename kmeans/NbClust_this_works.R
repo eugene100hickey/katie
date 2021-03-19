@@ -6,10 +6,42 @@ library(cluster)
 library(genes) # from devtools::install_github("eugene100hickey/genes")
 library(ggtext)
 
-stage <- 4
+stage <- 3
+
 
 if(!exists("dataset_5_stages")){
   data("dataset_5_stages")
+}
+
+fviz_nbclust_new <- function(x, print.summary = TRUE,
+                         barfill = "steelblue", barcolor = "steelblue")
+{
+  best_nc <- x$Best.nc
+  if(class(best_nc) == "numeric") print(best_nc)
+  else if(class(best_nc) == "matrix"){
+    best_nc <- as.data.frame(t(best_nc), stringsAsFactors = TRUE)
+    best_nc$Number_clusters <- as.factor(best_nc$Number_clusters)
+    
+    # Summary
+    if(print.summary){
+      ss <- summary(best_nc$Number_clusters)
+      cat ("Among all indices: \n===================\n")
+      for(i in 1 :length(ss)){
+        cat("*", ss[i], "proposed ", names(ss)[i], "as the best number of clusters\n" )
+      }
+      cat("\nConclusion\n=========================\n")
+      cat("* According to the majority rule, the best number of clusters is ",
+          names(which.max(ss)),  ".\n\n")
+    }
+    df <- data.frame(Number_clusters = names(ss), freq = ss, stringsAsFactors = TRUE )
+    df <- df %>% 
+      mutate(Number_clusters = fct_relevel(Number_clusters, 0:20 %>% as.character))
+    p <- ggpubr::ggbarplot(df,  x = "Number_clusters", y = "freq", fill = barfill, color = barcolor)+
+      labs(x = "Number of clusters k", y = "Frequency among all indices",
+           title = paste0("Optimal number of clusters - k = ", names(which.max(ss)) ))
+    
+    return(p)
+  }
 }
 
 NbClust_by_stage <- function(stage = 1) {
@@ -33,7 +65,7 @@ NbClust_by_stage <- function(stage = 1) {
                max.nc=20,
                method = "ward.D2", 
                index = "all")   
-  fviz_nbclust(z) + 
+  fviz_nbclust_new(z) + 
     labs(subtitle = glue::glue("NbClust Analysis for Stage <i style = 'color: darkred;'>{stage}</i>"),
          caption = " Malika Charrad, Nadia Ghazzali, Veronique Boiteau, Azam Niknafs (2014). NbClust: An
     R Package for Determining the Relevant Number of Clusters in a Data Set. Journal of
@@ -44,3 +76,4 @@ NbClust_by_stage <- function(stage = 1) {
 
 
 NbClust_by_stage(stage = stage)
+
