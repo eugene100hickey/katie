@@ -1,0 +1,75 @@
+---
+title: "NbClust"
+author: "Eugene"
+date: "4/30/2019"
+output: pdf_document
+---
+
+```{r setup, message=F, warning=F, echo=F}
+library(tidyverse)
+library(ABAData)
+library(factoextra)
+library(NbClust)
+library(cluster)
+library(genes) # from devtools::install_github("eugene100hickey/genes")
+```
+
+```{r data_in, message=F, warning=F, echo=F, cache=T}
+sz_genes <- pardinas()$genes
+stage <- 1
+
+data("dataset_5_stages")
+
+wide_allen_sz <-
+  dataset_5_stages %>% 
+  dplyr::filter(age_category == stage) %>% 
+  dplyr::select(hgnc_symbol, structure, signal) %>% 
+  dplyr::filter(hgnc_symbol %in% sz_genes) %>% 
+  distinct() %>% 
+  pivot_wider(names_from = "structure", 
+              values_from = "signal") %>% 
+  remove_rownames() %>%
+  column_to_rownames(var = "hgnc_symbol") %>%
+  t() %>%
+  scale() %>%
+  t() %>%
+  as.data.frame()
+```
+
+
+```{r clusters, message=F, warning=F, echo=F, cache=T}
+clusters <- kmeans(wide_allen_sz, centers = 7, nstart = 25)
+fviz_cluster(clusters, wide_allen_sz, repel = T)
+
+fviz_nbclust(wide_allen_sz, kmeans, method = "wss") + theme_minimal()
+
+gap_stat <- clusGap(wide_allen_sz, FUN = kmeans, nstart = 25, K.max = 9, B = 50)
+fviz_gap_stat(gap_stat) + theme_minimal()
+
+fviz_nbclust(wide_allen_sz, FUN = kmeans, method = "silhouette", k.max = 9) + theme_minimal()
+```
+
+```{r NbClusters, message=F, warning=F, echo=F, cache=T}
+selected <- c( "kl", "ch", "hartigan",  "cindex", "db", "silhouette", "duda", "pseudot2", "beale", "ratkowsky", "ball", "ptbiserial", "gap", "frey", "mcclain", "gamma", "gplus", "tau", "dunn", "hubert", "sdindex", "dindex", "sdbw") 
+
+results <- vector("list",length(selected))
+z <- tibble(NC = rep(0, length(selected)),
+            value_index = rep(0, length(selected)),
+            method = rep("try", length(selected)))
+
+for (i in 1:3) {
+  results[[i]] <- try(NbClust(wide_allen_sz, 
+                              min.nc=2, 
+                              max.nc=20, 
+                              method="kmeans", 
+                              index=selected[i]))
+  z$NC[i] <- results[[i]]$Best.nc[1]
+  z$value_index[i] <- results[[i]]$Best.nc[2]
+  z$method[i] <- selected[i]
+}
+
+z <- NbClust(data = wide_allen_sz, 
+             min.nc = 2, max.nc = 20, 
+             method = "kmeans")
+fviz_nbclust(z) + theme_minimal()
+```

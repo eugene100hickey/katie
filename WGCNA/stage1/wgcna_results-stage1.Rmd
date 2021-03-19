@@ -156,7 +156,7 @@ MEDiss5 = 1-cor(MEs5);
 METree5 = hclust(as.dist(MEDiss5), method = "average"); 
 # Plot the result 
 plot(METree5, main = glue("Clustering of module eigengenes for stage  {stage}"), xlab = "", sub = "")
-MEDissThres5 = 0.85
+MEDissThres5 = 0.80
 # Plot the cut line into the dendrogram
 abline(h=MEDissThres5, col = "red")
 ```
@@ -190,7 +190,6 @@ plotDendroAndColors(geneTree5,
 MEList5 = moduleEigengenes(sz_stage_5 %>% t(), colors = dynamicMods5)
 # Tue May 12 11:35:52 2020 ------------------------------
 
-MEDissThres5 = 1
 # Plot the cut line into the dendrogram
 abline(h=MEDissThres5, col = "red")
 # Call an automatic merging function
