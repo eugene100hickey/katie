@@ -7,7 +7,7 @@ library(genes) # from devtools::install_github("eugene100hickey/genes")
 library(ggtext)
 source("kmeans/NbClust_without_Beale.R")
 
-stage <- 5
+stage <- 1
 
 
 if(!exists("dataset_5_stages")){
@@ -65,7 +65,7 @@ NbClust_by_stage <- function(stage = 1) {
                diss=diss_matrix, 
                distance = NULL, 
                min.nc=2, 
-               max.nc=6,
+               max.nc=20,
                method = "ward.D2", 
                index = "all")   
   fviz_nbclust_new(z) + 
@@ -79,4 +79,5 @@ NbClust_by_stage <- function(stage = 1) {
 
 
 NbClust_by_stage(stage = stage)
+ggsave(glue::glue("kmeans/stage{stage}/NbPlot{stage}.png"))
 
