@@ -10,15 +10,16 @@ font_add(family = "Kalam", regular = "fonts/Kalam/Kalam-Regular.ttf")
 showtext::showtext_auto()
 
 
-stage <- 5
+stage <- 3
 centres <- 3
+repel <- TRUE
 
 
 if(!exists("dataset_5_stages")){
   data("dataset_5_stages")
 }
 
-fviz_clust_by_stage <- function(stage = 1, centres = 3, axes = c(1, 2)) {
+fviz_clust_by_stage <- function(stage = 1, centres = 3, axes = c(1, 2), repel = T) {
   wide_allen_sz <-
     dataset_5_stages %>% 
     dplyr::filter(age_category == stage) %>% 
@@ -36,12 +37,14 @@ fviz_clust_by_stage <- function(stage = 1, centres = 3, axes = c(1, 2)) {
   
   clusters <- kmeans(wide_allen_sz, centers = centres, nstart = 25)
   fviz_cluster(clusters, wide_allen_sz, 
-               repel = T, 
+               repel = repel, 
                axes = axes, 
-               max.overlaps = 50)
+               max.overlaps = 50,
+               labelsize = 8,
+               pointsize = 0.8)
 }
 
-fviz_clust_by_stage(stage = stage, centres = centres, axes = c(1,2)) + 
+fviz_clust_by_stage(stage = stage, centres = centres, axes = c(1,2), repel = repel) + 
   labs(title = glue::glue("Cluster Plot for Stage {stage}"),
        caption = "<i style='font-family: Kalam; color:darkred; font-size: 15px;'>factoextra: Extract and Visualize the Results of Multivariate Data Analyses</i>
        <br>
@@ -49,6 +52,7 @@ fviz_clust_by_stage(stage = stage, centres = centres, axes = c(1,2)) +
   theme_minimal() +
   theme(plot.caption = element_markdown(),
         plot.title = element_text(size = 18, family = "Kalam"),
-        legend.position = "none")
-ggsave(glue::glue("kmeans/stage{stage}/kplot{stage}_centres_{centres}.png"))
+        legend.position = "none",
+        )
+ggsave(glue::glue("kmeans/stage{stage}/kplot{stage}_centres_{centres}_repel-{repel}.png"))
   
