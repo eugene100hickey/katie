@@ -1,15 +1,9 @@
-library(WGCNA)
-
-
 
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load(ABAData, httr, readxl, tidyverse, patchwork, ggplotify, janitor, ggrepel, ggtext, glue, dplyr)
+pacman::p_load(ABAData, httr, readxl, tidyverse, patchwork, ggplotify, janitor, ggrepel, ggtext, glue, dplyr, WGCNA)
 
-url <- "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5918692/bin/NIHMS958804-supplement-Supplementary_Table.xlsx"
-GET(url, write_disk(temp_file <- tempfile(fileext = ".xlsx")))
 
-df <- read_excel(temp_file, sheet = 4, skip = 3) 
-unlink(temp_file)
+df <- read_csv("Pardinas.csv")
 
 all_sz_genes <- df$`Gene(s) tagged` %>% 
   str_split(",") %>% 
@@ -54,7 +48,7 @@ pThree = sftThree$fitIndices %>%
   theme(axis.title.y = element_textbox_simple(
     orientation = "left-rotated",
     width = NULL)) +
-  geom_hline(yintercept = 0.77, col = "red" )
+  geom_hline(yintercept = 0.83, col = "red" )
 
 pThree2 = sftThree$fitIndices %>% 
   clean_names() %>% 
@@ -66,7 +60,7 @@ pThree2 = sftThree$fitIndices %>%
   geom_text_repel()
 
 pThree + pThree2
-
+dev.off()	
 softPowerThree = 6
 adjacencyThree = adjacency(kThree, power = softPowerThree);
 
@@ -84,11 +78,11 @@ plot(geneTreeThree, xlab="", sub="", main = glue("Gene clustering on TOM-based d
 minModuleSize = 10; 
 # Module identification using dynamic tree cut: 
 dynamicModsThree = cutreeDynamic(dendro = geneTreeThree, 
-                               distM = dissTOMThree, 
-                               deepSplit = 2, 
-                               pamRespectsDendro = FALSE, 
-                               minClusterSize = minModuleSize,
-                               cutHeight = 0.95); 
+                                 distM = dissTOMThree, 
+                                 deepSplit = 2, 
+                                 pamRespectsDendro = FALSE, 
+                                 minClusterSize = minModuleSize,
+                                 cutHeight = 0.95); 
 
 table(dynamicModsThree)
 
@@ -134,6 +128,7 @@ plot(geneTreeThree,
      cex = 0.6)
 
 plotDendroAndColors(geneTreeThree, 
+                    main = "Developmental Stage Three Cluster Dendrogram",
                     cbind(dynamicColorsThree, mergedColorsThree),
                     c("Dynamic Tree Cut", "Merged dynamic"),
                     dendroLabels = FALSE, hang = 0.03,
@@ -152,7 +147,7 @@ mergeThree = mergeCloseModules(kThree, dynamicColorsThree, cutHeight = MEDissThr
 
 mergedColorsThree = mergeThree$colors;
 geneInfoALLThree <- data.frame(geneIDs = colnames(kThree), 
-                             moduleColor=mergedColorsThree)
+                               moduleColor=mergedColorsThree)
 
 mergedMEsThree = mergeThree$newMEs
 #pdf(file = "Plots/geneDendro-3.pdf", wi = 9, he = 6)
@@ -192,7 +187,7 @@ par(cex = 1.0)
 if(ncol(MEsThree) > 2) plotEigengeneNetworks(MEsThree, glue("Eigengene dendrogram for stage Three"), marDendro = c(0,4,2,0), plotHeatmaps = FALSE)
 
 par(cex = 1.0)
-if(ncol(MEsThree) > 2) plotEigengeneNetworks(MEsThree, glue("Eigengene adjacency heatmap for stage Three"), marHeatmap = c(3,4,2,2), plotDendrograms = FALSE, xLabelsAngle = 90)
+if(ncol(MEsThree) > 2) plotEigengeneNetworks(MEsThree, glue("Eigengene adjacency heatmap for Stage Three"), marHeatmap = c(3,4,2,2), plotDendrograms = FALSE, xLabelsAngle = 90)
 
 moduleEigengenes(kThree,
                  moduleColorsThree,
@@ -224,7 +219,7 @@ library(org.Hs.eg.db)
 GOcollection = buildGOcollection(organism = "human")
 
 
-allLLIDs<-read_csv("ABALocusLinked.csv")
+allLLIDs<-read_csv("ABALocusLinked26-03.csv")
 GOenrThree = enrichmentAnalysis(
   classLabels = moduleColorsThree, identifiers = allLLIDs$LOCUSLINK_ID,
   refCollection = GOcollection,
@@ -260,21 +255,17 @@ write.csv(GO_per_setThree, file="GO_per_setThree.csv")
 GO_per_setThree <- as.data.frame(GO_per_setThree)
 GO_per_setThreecont <- as.data.frame(GO_per_set_Threecont)
 
-#Blue
-GO_per_setThreecont_Blue <- GO_per_setThreecont[GO_per_setThreecont$Module == "blue",]
-write.csv(GO_per_setThreecont_Blue, file="GO_per_setThree_bluecont.csv")
+
 #Brown
 GO_per_setThreecont_Brown <- GO_per_setThreecont[GO_per_setThreecont$Module == "brown",]
 write.csv(GO_per_setThreecont_Brown, file="GO_per_setThree_brown.csv")
 #Turq
 GO_per_setThreecont_Turquoise <- GO_per_setThreecont[GO_per_setThreecont$Module == "turquoise",]
 write.csv(GO_per_setThreecont_Turquoise, file="GO_per_setThree_Turquoise.csv")
-#Black
-GO_per_setThreecont_Black <- GO_per_setThreecont[GO_per_setThreecont$Module == "black",]
-write.csv(GO_per_setThreecont_Black, file="GO_per_setThree_Black.csv")
-#Green
-GO_per_setThreecont_Black <- GO_per_setThreecont[GO_per_setThreecont$Module == "black",]
-write.csv(GO_per_setThreecont_Black, file="GO_per_setThree_Black.csv")
+#Yellow
+GO_per_setThreecont_Yell <- GO_per_setThreecont[GO_per_setThreecont$Module == "yellow",]
+write.csv(GO_per_setThreecont_Yell, file="GO_per_setThree_Yellow.csv")
+
 
 
 pdf("plotEigeneNetworks.pdf")
@@ -285,57 +276,7 @@ dev.off()
 
 geneInfoALL<-data.frame(geneIDs = colnames(kThree), moduleColor=moduleColorsThree)
 
-blueModule<-subset(geneInfoALL, moduleColor == "blue", select = c("geneIDs", "moduleColor"))
-write.csv(blueModule, "blueModuleThree.csv")
 
-geneModuleMembership3 = as.data.frame(cor(kThree, MEsOne33, use = "p")) #module membership for all genes all modules
-geneModuleMembership3[blueModule$geneIDs,]->geneModuleMembershipThree_blue #get modulemembership for genes in blue module
-geneModuleMembershipThree_blue$MEblue->geneModuleMembership3blue #correlation of each gene with the with module eigengene for genes in blue module
-
-kThree[,blueModule$geneIDs] #get expression values for genes in blue module only
-
-cor((kOne[,blueModule$geneIDs]))->cor3 #correlation of each gene expression value with every other gene in the blue module
-
-
-rownames(cor3)->vec3 # list of gene names in blue module
-exportNetworkToCytoscape(cor3, altNodeNames =vec3, nodeAttr=geneModuleMembershipThree_blue)->cytoblue3
-write.csv(cytoblue3$edgeData, "cyto_blueEDGE3.csv",quote=FALSE)
-write.csv(cytoblue3$nodeData, "cyto_blueNODE3.csv",quote=FALSE)
-save(cytoblue3, file="cytoblue3.Rdata")
-
-pacman::p_load(tidyverse, httr, readxl, janitor,dplyr)
-
-
-url <- "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5918692/bin/NIHMS958804-supplement-Supplementary_Table.xlsx"
-GET(url, write_disk(temp_file <- tempfile(fileext = ".xlsx"))) # downloads the .xlsx file
-df <- read_excel(temp_file, sheet = 4, skip = 3) # reads into a dataframe. First six rows of the excel file are just header
-unlink(temp_file)     # deletes the temporary file
-
-pf <- df %>%
-  clean_names() %>%
-  separate_rows(gene_s_tagged) %>%
-  dplyr::select(genes = gene_s_tagged, p_value) %>%
-  distinct() %>% 
-  group_by(genes) %>% 
-  summarise(p_value = min(p_value, na.rm = T)) %>% 
-  ungroup()
-
-
-datablue3 <- read.csv("cyto_blueEDGE3.csv")
-
-datablue3$fromNode2 = datablue3$fromNode
-
-names(datablue3)[8] <- "genes"
-
-cytoblue3 <- datablue3 %>% 
-  left_join(pf) %>% 
-  dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
-
-
-cytoblue33 = cytoblue3 %>% mutate(weight = abs(weight)) %>%
-  dplyr::filter(weight > 0.7)
-write.csv(cytoblue3, "cyto_blueEDGE3.csv",quote=FALSE)
-write.csv(cytoblue33, "cyto_blueEDGE33.csv",quote=FALSE)
 
 
 #Turq
@@ -376,7 +317,7 @@ cytoTurquoise3 <- dataTurquoise3 %>%
 write.csv(cytoTurquoise3, "cyto_Turquoise3.csv",quote=FALSE)
 
 cytoTurquoise33= cytoTurquoise3 %>% mutate(weight = abs(weight)) %>%
-  dplyr::filter(weight > 0.7)
+  dplyr::filter(weight > 0.8)
 
 write.csv(cytoTurquoise33, "cyto_TurquoiseEDGE33.csv",quote=FALSE)
 #Brown
@@ -415,79 +356,45 @@ cytobrown3 <- databrown3 %>%
 write.csv(cytobrown3, "cyto_brownEDGE3.csv",quote=FALSE)
 
 cytobrown33 = cytobrown3 %>% mutate(weight = abs(weight)) %>%
-  dplyr::filter(weight > 0.7)
+  dplyr::filter(weight > 0.8)
 
 write.csv(cytobrown33, "cyto_brownEDGE33.csv",quote=FALSE)
 
-#Black
+#Yellow
 geneInfoALL<-data.frame(geneIDs = colnames(kThree), moduleColor=moduleColorsThree)
 
-BlackModule<-subset(geneInfoALL, moduleColor == "black", select = c("geneIDs", "moduleColor"))
-write.csv(BlackModule, "BlackModule3.csv")
+YellModule3<-subset(geneInfoALL, moduleColor == "yellow", select = c("geneIDs", "moduleColor"))
+write.csv(YellModule3, "YellModule3.csv")
 geneModuleMembership3 = as.data.frame(cor(kThree, MEsOne33, use = "p")) #module membership for all genes all modules
-geneModuleMembership3[BlackModule$geneIDs,]->geneModuleMembership3_Black#get modulemembership for genes in blue module
-geneModuleMembership3_Black$MEBlack->geneModuleMembershipBlack #correlation of each gene with the with module eigengene for genes in blue module
+geneModuleMembership3[YellModule3$geneIDs,]->geneModuleMembership3_Yell#get modulemembership for genes in blue module
+geneModuleMembership3_Yell$MEYell->geneModuleMembershipYell #correlation of each gene with the with module eigengene for genes in blue module
 
-kThree[,BlackModule$geneIDs] #get expression values for genes in turquoise module only
+kThree[,YellModule3$geneIDs] #get expression values for genes in turquoise module only
 
-cor((kThree[,BlackModule$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
+cor((kThree[,YellModule3$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
 
 
 rownames(cor4)->vec4 # list of gene names in blue module
-exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership3_Black)->cytoBlack3
+exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership3_Yell)->cytoYell3
 
 
-write.csv(cytobBlack3$edgeData, "cyto_BlackEDGE3.csv",quote=FALSE)
-write.csv(cytoBlack3$nodeData, "cyto_BlackNODE3.csv",quote=FALSE)
-save(cytoBlack3, file="cytoBlack3.Rdata")
+write.csv(cytoYell3$edgeData, "cyto_YellEDGE3.csv",quote=FALSE)
+write.csv(cytoYell3$nodeData, "cyto_YellNODE3.csv",quote=FALSE)
+save(cytoYell3, file="cytoYell3.Rdata")
 
-dataBlack3 <- read.csv("cyto_BlackEDGE3.csv")
+dataYell3 <- read.csv("cyto_YellEDGE3.csv")
 
-dataBlack3$fromNode2 = dataBlack3$fromNode
+dataYell3$fromNode2 = dataYell3$fromNode
 
-names(dataBlack3)[8] <- "genes"
+names(dataYell3)[8] <- "genes"
 
-cytoBlack33 <- dataBlack3 %>% 
+cytoYell3 <- dataYell3 %>% 
   left_join(pf) %>% 
   dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
 
-write.csv(cytoBlack33, "cyto_BlackEDGE33.csv",quote=FALSE)
+write.csv(cytoYell3, "cyto_YellEDGE3.csv",quote=FALSE)
+cytoYell33 = cytoYell3 %>% mutate(weight = abs(weight)) %>%
+  dplyr::filter(weight > 0.8)
 
-#Green
-geneInfoALL<-data.frame(geneIDs = colnames(kThree), moduleColor=moduleColorsThree)
+write.csv(cytoYell33, "cyto_YellEDGE33.csv",quote=FALSE)
 
-GreenModule<-subset(geneInfoALL, moduleColor == "green", select = c("geneIDs", "moduleColor"))
-write.csv(GreenModule, "GreenModule3.csv")
-geneModuleMembership3 = as.data.frame(cor(kThree, MEsOne33, use = "p")) #module membership for all genes all modules
-geneModuleMembership3[GreenModule$geneIDs,]->geneModuleMembership3_Green#get modulemembership for genes in blue module
-geneModuleMembership3_Green$MEGreen->geneModuleMembershipGreen #correlation of each gene with the with module eigengene for genes in blue module
-
-kThree[,GreenModule$geneIDs] #get expression values for genes in turquoise module only
-
-cor((kThree[,GreenModule$geneIDs]))->cor4 #correlation of each gene expression value with every other gene in the turquoise module
-
-
-rownames(cor4)->vec4 # list of gene names in blue module
-exportNetworkToCytoscape(cor4, altNodeNames =vec4, nodeAttr=geneModuleMembership3_Green)->cytoGreen3
-
-
-write.csv(cytobGreen3$edgeData, "cyto_GreenEDGE3.csv",quote=FALSE)
-write.csv(cytoGreen3$nodeData, "cyto_GreenNODE3.csv",quote=FALSE)
-save(cytoGreen3, file="cytoGreen3.Rdata")
-
-dataGreen3 <- read.csv("cyto_GreenEDGE3.csv")
-
-dataGreen3$fromNode2 = dataGreen3$fromNode
-
-names(dataGreen3)[8] <- "genes"
-
-cytoGreen33 <- dataGreen3 %>% 
-  left_join(pf) %>% 
-  dplyr::select(genes, p_value, fromNode, toNode, weight, direction, fromAltName, toAltName) 
-
-write.csv(cytoGreen33, "cyto_GreenDGE33.csv",quote=FALSE)
-
-cytobrown33 = cytobrown3 %>% mutate(weight = abs(weight)) %>%
-  dplyr::filter(weight > 0.7)
-
-write.csv(cytobrown33, "cyto_brownEDGE33.csv",quote=FALSE)
