@@ -1,25 +1,15 @@
----
-title: "anRichment Ontologies"
-output: html_document
-params:
-  filename: "GO Developmental Stage One 17-03-21 minmodulesize 10.xlsx"
-  sheetName: "GO_per_setOne_GreenYellow"
----
-
-```{r setup, include=T, echo = F}
-knitr::opts_chunk$set(echo = F, message = F, warning = F)
-```
-
-```{r libraries_functions}
-# load in all our packages, the .db's are pretty big
 pacman::p_load(tidyverse, 
-               httr, 
-               readxl, 
-               ABAData, 
                GO.db, 
                org.Hs.eg.db)
 
 p_threshold <- 0.05
+
+filename <- "anRichment/GO_per_set_One/GO_per_setOne_brown.csv"
+# sheetName <- "GO_per_setOne_brown"
+
+anrichment_module <- read_csv(file = filename) %>% 
+  janitor::clean_names() %>% 
+  dplyr::rename(GOID = go_term)
 
 search_GO <- function(index = 1, df = anrichment_module){
   case_when(
@@ -39,9 +29,9 @@ anRich_ontology <- function(filename) {
   
   
   anrichment_module <- AnnotationDbi::select(GO.db, 
-                                    keys = anrichment_module$GOID, 
-                                    keytype = "GOID", 
-                                    columns = c("GOID", "ONTOLOGY")) %>% 
+                                             keys = anrichment_module$GOID, 
+                                             keytype = "GOID", 
+                                             columns = c("GOID", "ONTOLOGY")) %>% 
     right_join(anrichment_module)
   
   anrichment_module <- anrichment_module %>% 
@@ -53,9 +43,9 @@ anRich_ontology <- function(filename) {
   
   # gets the definitions and terms for all our GO's
   GO_terms_background <- AnnotationDbi::select(GO.db, 
-                                                      keys = anrichment_children$GOID, 
-                                                      keytype = "GOID", 
-                                                      columns = c("DEFINITION", "GOID", "ONTOLOGY", "TERM"))
+                                               keys = anrichment_children$GOID, 
+                                               keytype = "GOID", 
+                                               columns = c("DEFINITION", "GOID", "ONTOLOGY", "TERM"))
   
   anrichment_children <- GO_terms_background %>% 
     left_join(anrichment_children) 
@@ -63,10 +53,8 @@ anRich_ontology <- function(filename) {
   anrichment_children
 }
 
-```
 
 
-```{r child_terms, cache= T, include = F}
 # GO_CC_child is vector of all CC GO terms that have no
 # children of their own, lowest level terms
 GO_CC <- as.list(GOCCCHILDREN)
@@ -81,19 +69,12 @@ GO_MF_child <- GO_MF[is.na(GO_MF)] %>% names()
 # children of their own, lowest level terms
 GO_BP <- as.list(GOBPCHILDREN)
 GO_BP_child <- GO_BP[is.na(GO_BP)] %>% names()
-```
-
-```{r include = T}
-
-anrichment_module <- xlsx::read.xlsx(params$filename, sheetName = params$sheetName) %>% 
-  janitor::clean_names() %>% 
-  dplyr::rename(GOID = goid)
 
 
 anrichment_module <- AnnotationDbi::select(GO.db, 
-                                  keys = anrichment_module$GOID, 
-                                  keytype = "GOID", 
-                                  columns = c("GOID", "ONTOLOGY")) %>% 
+                                           keys = anrichment_module$GOID, 
+                                           keytype = "GOID", 
+                                           columns = c("GOID", "ONTOLOGY")) %>% 
   right_join(anrichment_module)
 
 anrichment_module <- anrichment_module %>% 
@@ -106,28 +87,12 @@ anrichment_children <- anrichment_module %>% dplyr::filter(end_node == 'yes')
 
 # gets the definitions and terms for all our GO's
 GO_terms_background <- AnnotationDbi::select(GO.db, 
-                                                    keys = anrichment_children$GOID, 
-                                                    keytype = "GOID", 
-                                                    columns = c("DEFINITION", "GOID", "ONTOLOGY", "TERM"))
+                                             keys = anrichment_children$GOID, 
+                                             keytype = "GOID", 
+                                             columns = c("DEFINITION", "GOID", "ONTOLOGY", "TERM"))
 
 anrichment_children <- GO_terms_background %>% 
-  left_join(anrichment_children)
+  left_join(anrichment_children) %>% 
+  dplyr::select(GOID, DEFINITION, ONTOLOGY, TERM, module, fdr, genes)
 
 knitr::kable(anrichment_children)
-```
-
-<!-- ```{r} -->
-<!-- anRich_ontology(filename = "GO_per_set1_Turquoise.csv") %>%  -->
-<!--   knitr::kable(caption = "Turquoise Stage 1") %>% kableExtra::column_spec(column = 2, width = "10cm") -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- anRich_ontology(filename = "GO_per_set1_blue.csv") %>%  -->
-<!--   knitr::kable(caption = "Blue Stage 1") -->
-<!-- ``` -->
-
-<!-- ```{r} -->
-<!-- anRich_ontology(filename = "GO_per_set1_brown.csv") %>%  -->
-<!--   knitr::kable(caption = "Brown Stage 1") -->
-<!-- ``` -->
-

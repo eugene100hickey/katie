@@ -1,15 +1,10 @@
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load(WGCNA, ABAData, httr, readxl, tidyverse, patchwork, ggplotify, janitor, ggrepel, ggtext, glue, dplyr)
+library(genes)
 
-df <- read_csv("Pardinas.csv")
+# df <- read_csv("Pardinas.csv")
 
-all_sz_genes <- df$`Gene(s) tagged` %>% 
-  str_split(",") %>% 
-  unlist() %>% 
-  str_trim() %>% 
-  as.data.frame() %>% 
-  distinct()
-names(all_sz_genes) <- "genes"
+all_sz_genes <- pardinas()
 
 data(dataset_5_stages)
 

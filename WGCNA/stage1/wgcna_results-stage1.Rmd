@@ -88,7 +88,7 @@ p1 = sft5$fitIndices %>%
   theme(axis.title.y = element_textbox_simple(
       orientation = "left-rotated",
       width = NULL)) +
-  geom_hline(yintercept = 0.55, col = "red" )
+  geom_hline(yintercept = 0.75, col = "red" )
 
 # Mean connectivity as a function of the soft-thresholding power
 p2 = sft5$fitIndices %>% 
