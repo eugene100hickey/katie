@@ -111,7 +111,8 @@ GO_terms_background <- AnnotationDbi::select(GO.db,
                                                     columns = c("DEFINITION", "GOID", "ONTOLOGY", "TERM"))
 
 anrichment_children <- GO_terms_background %>% 
-  left_join(anrichment_children)
+  left_join(anrichment_children) %>% 
+  dplyr::select(GOID, DEFINITION, ONTOLOGY, TERM, module, fdr, genes)
 
 knitr::kable(anrichment_children)
 ```

@@ -4,10 +4,13 @@ pacman::p_load(tidyverse,
 
 p_threshold <- 0.05
 
-filename <- "anRichment/GO_per_set_One/GO_per_setOne_brown.csv"
-# sheetName <- "GO_per_setOne_brown"
+# Need to change this depending on what stage
+directory <- "anRichment/GO_per_set_One"
 
-anrichment_module <- read_csv(file = filename) %>% 
+# Need to change this depending on what module
+filename <- "GO_per_setOne_brown.csv"
+
+anrichment_module <- read_csv(file = glue::glue("{directory}/{filename}")) %>% 
   janitor::clean_names() %>% 
   dplyr::rename(GOID = go_term)
 
@@ -95,4 +98,5 @@ anrichment_children <- GO_terms_background %>%
   left_join(anrichment_children) %>% 
   dplyr::select(GOID, DEFINITION, ONTOLOGY, TERM, module, fdr, genes)
 
-knitr::kable(anrichment_children)
+#Creates new file with "specific-" pre-pending the original filename, in the same directory
+write_csv(anrichment_children, file = glue::glue("{directory}/specific-{filename}"))
