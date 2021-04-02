@@ -110,21 +110,21 @@ mergedColorsOne = mergeOne$colors;
 # Eigengenes of the new merged modules:
 mergedMEsOne = mergeOne$newMEs
 
-plot(geneTreeOne, 
-     main = "Sample clustering to detect outliers", 
-     sub="", 
-     xlab="", 
-     cex.lab = 0.5, 
-     cex.axis = 1.5, 
-     cex.main = 2, 
-     cex = 0.6)
-
-plotDendroAndColors(geneTreeOne,
-                    main = "Developmental Stage One Merged Cluster Dendrogram",
-                    cbind(dynamicColorsOne, mergedColorsOne),
-                    c("Dynamic Tree Cut", "Merged dynamic"),
-                    dendroLabels = FALSE, hang = 0.03,
-                    addGuide = TRUE, guideHang = 0.05)
+# plot(geneTreeOne, 
+#      main = "Sample clustering to detect outliers", 
+#      sub="", 
+#      xlab="", 
+#      cex.lab = 0.5, 
+#      cex.axis = 1.5, 
+#      cex.main = 2, 
+#      cex = 0.6)
+# 
+# plotDendroAndColors(geneTreeOne,
+#                     main = "Developmental Stage One Merged Cluster Dendrogram",
+#                     cbind(dynamicColorsOne, mergedColorsOne),
+#                     c("Dynamic Tree Cut", "Merged dynamic"),
+#                     dendroLabels = FALSE, hang = 0.03,
+#                     addGuide = TRUE, guideHang = 0.05)
 
 
 # Tue May 12 11:35:46 2020 ------------------------------
@@ -143,10 +143,10 @@ geneInfoALLOne <- data.frame(geneIDs = colnames(kOne),
 
 mergedMEsOne = mergeOne$newMEs
 #pdf(file = "Plots/geneDendro-3.pdf", wi = 9, he = 6)
-plotDendroAndColors(geneTreeOne, cbind(dynamicColorsOne, mergedColorsOne),
-                    c("Dynamic Tree Cut", "Merged dynamic"),
-                    dendroLabels = FALSE, hang = 0.03,
-                    addGuide = TRUE, guideHang = 0.05)
+# plotDendroAndColors(geneTreeOne, cbind(dynamicColorsOne, mergedColorsOne),
+#                     c("Dynamic Tree Cut", "Merged dynamic"),
+#                     dendroLabels = FALSE, hang = 0.03,
+#                     addGuide = TRUE, guideHang = 0.05)
 
 
 # Rename to moduleColors
@@ -211,9 +211,10 @@ library(org.Hs.eg.db)
 GOcollection = buildGOcollection(organism = "human")
 
 
-allLLIDs<-read_csv("ABALocusLinked26-03.csv")
+allLLIDs<-read_csv("locuslinkedIDs.csv")
 GOenrOne = enrichmentAnalysis(
-  classLabels = moduleColorsOne, identifiers = allLLIDs$LOCUSLINK_ID,
+  classLabels = moduleColorsOne, 
+  identifiers = allLLIDs$LOCUSLINK_ID,
   refCollection = GOcollection,
   useBackground = "allOrgGenes",
   threshold = 1e-4,

@@ -8,7 +8,7 @@ p_threshold <- 0.05
 directory <- "anRichment/GO_per_set_One"
 
 # Need to change this depending on what module
-filename <- "GO_per_setOne_brown.csv"
+filename <- "GO_per_setOne_Turquoise.csv"
 
 anrichment_module <- read_csv(file = glue::glue("{directory}/{filename}")) %>% 
   janitor::clean_names() %>% 
@@ -97,6 +97,11 @@ GO_terms_background <- AnnotationDbi::select(GO.db,
 anrichment_children <- GO_terms_background %>% 
   left_join(anrichment_children) %>% 
   dplyr::select(GOID, DEFINITION, ONTOLOGY, TERM, module, fdr, genes)
+genes <- anrichment_children$genes 
+genes <- str_match_all(genes, "(?<=\\().+?(?=\\))") %>% 
+  stringi::stri_join_list(sep = ", ")
+
+anrichment_children$genes <- genes
 
 #Creates new file with "specific-" pre-pending the original filename, in the same directory
 write_csv(anrichment_children, file = glue::glue("{directory}/specific-{filename}"))
